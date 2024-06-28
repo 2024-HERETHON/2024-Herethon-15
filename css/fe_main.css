@@ -277,7 +277,7 @@ hr {
 .todo_text_e:hover,
 .todo_text:hover {
   background-color: #f8f0fe;
-  padding: 0px 550px 0px 0px;
+  padding: 0% 2% 0% 2%;
   border-radius: 10px;
 }
 
