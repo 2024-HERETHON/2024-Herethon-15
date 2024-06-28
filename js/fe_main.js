@@ -31,6 +31,7 @@ const currentDateElement = document.getElementById("current_date");
 currentDateElement.textContent = `${year}.${month}`;
 
 // today 투두리스트 추가 버튼
+// today 투두리스트 추가 버튼
 const todoInputBtn = document.querySelector(".todo_input");
 const inputField = document.querySelector(".input_field");
 
@@ -77,6 +78,15 @@ function paintToDo() {
 
     toDoList.appendChild(li);
     toDoInput.value = "";
+
+    // 체크박스 클릭 시 글자색 변경
+    checkbox.addEventListener("change", function () {
+      if (this.checked) {
+        todoText.style.opacity = "0.3";
+      } else {
+        todoText.style.opacity = "1";
+      }
+    });
   }
 }
 
@@ -142,10 +152,10 @@ addListBtn.addEventListener("click", function () {
       let li_e = document.createElement("li");
       li_e.classList.add("todo_item_e");
 
-      let checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      li_e.appendChild(checkbox);
-      checkbox.classList.add("checkbox_e");
+      let checkbox_e = document.createElement("input");
+      checkbox_e.type = "checkbox";
+      li_e.appendChild(checkbox_e);
+      checkbox_e.classList.add("checkbox_e");
 
       let todoText_e = document.createElement("span");
       todoText_e.textContent = ` ${newTodo_e}`;
@@ -162,6 +172,20 @@ addListBtn.addEventListener("click", function () {
 
       section.querySelector(".todo_list_e").appendChild(li_e);
       inputField_e.value = "";
+
+      // 체크박스 클릭 시 글자색 변경
+      checkbox_e.addEventListener("change", function () {
+        if (this.checked) {
+          todoText_e.style.opacity = "0.3";
+        } else {
+          todoText_e.style.opacity = "1";
+        }
+      });
+
+      expandBtn_e.addEventListener("click", function () {
+        inputField_e.style.display = "block";
+        inputField_e.focus();
+      });
     }
   }
 });
