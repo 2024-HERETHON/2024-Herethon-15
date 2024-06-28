@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codea : 여성 개발자들의 놀이터</title>
+    <link rel="stylesheet" href="/css/fe_main.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">codea</div>
+        <button class="menu" id="home">홈</button>
+        <button class="menu" id="search">탐색</button>
+        <button class="menu" id="logout">로그아웃</button>
+      </nav>
+
+      <hr />
+
+      <section>
+        <div class="profile_container">
+          <img src="/images/profile.svg" class="profile_img" />
+          <div class="profile_info">
+            <div class="profile_name">여예원</div>
+            <br />
+            <div class="profile_tag">프론트</div>
+          </div>
+        </div>
+        <div class="intro_box">introduction...</div>
+        <div class="show_cheer">
+          <div class="cheer_icon">받은응원</div>
+          <div class="cheer_icon">
+            <img src="/images/cheer_fist.svg" />
+            <div class="cheer_cnt">16</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="todo_callender">
+        <div class="callender_text">
+          <img src="/images/callender_icon.svg" />
+          <span id="current_date"></span>
+        </div>
+        <div class="callender_box"></div>
+      </section>
+
+      <section class="todo_list">
+        <br />
+        <button class="todo_input">
+          Today
+          <img src="/images/add_icon_circle.svg" />
+        </button>
+        <br />
+        <br />
+        <input
+          type="text"
+          class="input_field"
+          id="input_field"
+          placeholder="할 일 입력"
+        />
+        <ul id="todo_list" style="list-style-type: none"></ul>
+        <br /><br />
+        <button class="add_list">
+          <img src="/images/add_icon.svg" />목록추가
+        </button>
+      </section>
+      <script src="/js/fe_main.js"></script>
+    </div>
+  </body>
+</html>
