@@ -274,11 +274,11 @@ hr {
   line-height: 240%;
 }
 
-.todo_text_e:hover,
-.todo_text:hover {
+li:hover {
   background-color: #f8f0fe;
-  padding: 0% 2% 0% 2%;
+  width: 708px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .expand_btn,
