@@ -6,8 +6,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: max(1024px, 100vw);
-  height: max(920px, 100vh);
+  width: 1920px;
+  height: 1080px;
 }
 
 .mainContainer {

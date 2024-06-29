@@ -1,13 +1,12 @@
-<!-- 로그인 창으로 넘어가는 버튼 태그 수정 필요 -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/fe_mainContainer.css" />
-    <link rel="stylesheet" href="css/fe_titleCodea.css" />
-    <link rel="stylesheet" href="css/fe_nextButton.css" />
-    <link rel="stylesheet" href="css/fe_joinFinish.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_mainContainer.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_titleCodea.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_nextButton.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_joinFinish.css" />
     <title>회원가입</title>
   </head>
   <body>
@@ -18,7 +17,12 @@
           <img class="checkPic" src="css/checkPic.png" alt="checkPic" />
           <p class="helloUser">반갑습니다, 000님!</p>
           <p class="loginGo">지금 바로 로그인 후 시작해보세요!</p>
-          <button class="nextButton">로그인 하기</button>
+          <button
+            class="nextButton"
+            onclick="location.href='../../login/login.html'"
+          >
+            로그인 하기
+          </button>
         </div>
       </div>
     </div>

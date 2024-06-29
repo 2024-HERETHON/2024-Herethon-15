@@ -9,11 +9,12 @@
   text-align: center;
   position: absolute;
   align-items: center;
-  top: calc(50vh + 260px);
+  width: 1024px;
+  top: 800px;
   a {
     color: #7d08d9;
     font-weight: bold;
-    text-underline-position: under;
+    text-decoration-line: none;
   }
 }
 
@@ -27,6 +28,5 @@
   font-size: 24px;
   font-family: "Pretendard-Regular";
   position: absolute;
-  align-items: center;
-  top: calc(50vh + 330px);
+  top: 870px;
 }
