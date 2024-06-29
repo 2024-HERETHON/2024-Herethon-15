@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/fe_mainContainer.css" />
-    <link rel="stylesheet" href="css/fe_titleCodea.css" />
-    <link rel="stylesheet" href="css/fe_inputChoiceButton.css" />
-    <link rel="stylesheet" href="css/fe_nextButton.css" />
-    <link rel="stylesheet" href="css/fe_inputQuestion.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_mainContainer.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_titleCodea.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/fe_inputChoiceButton.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/fe_nextButton.css" />
+    <link rel="stylesheet" type="text/css" href="css/fe_inputQuestion.css" />
 
     <title>회원가입</title>
   </head>
@@ -47,14 +51,12 @@
             <input type="radio" name="userPosition" id="미정" value="미정" />
             <label for="미정" class="choice_label">미정</label>
           </div>
-          <button
-            class="nextButton"
-            onclick="location.href='fe_inputUserOpen.html'"
-          >
+          <button class="nextButton" onclick="checkSelected()">
             다음으로 →
           </button>
         </div>
       </div>
     </div>
   </body>
+  <script src="fe_inputUserPosition.js" type="text/javascript"></script>
 </html>
