@@ -2,7 +2,7 @@
 
 .container {
   background-color: #f7f7f7;
-  width: 1920px;
+  width: 1792px;
   height: 1080px;
   position: absolute;
 }
@@ -12,7 +12,7 @@
   width: 692px;
   height: 920px;
   position: absolute;
-  left: 614px;
+  left: calc((1792px - 692px) / 2);
   top: 96px;
   background-color: #ffffff;
   border-radius: 32px;
