@@ -1,6 +1,6 @@
 .container {
-  width: 1920px;
-  height: 1080px;
+  width: 1440px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -46,7 +46,7 @@ nav {
 }
 
 hr {
-  width: 1920px;
+  width: 1440px;
   height: 2px;
   background-color: #c4c4c4;
   border: 0;

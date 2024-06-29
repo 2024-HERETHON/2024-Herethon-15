@@ -66,7 +66,7 @@ function paintToDo() {
 
     let expandBtn = document.createElement("button");
     let img = document.createElement("img");
-    img.src = "/images/expand_btn.svg";
+    img.src = "images/expand_btn.svg";
     img.alt = "더보기";
     expandBtn.appendChild(img);
     expandBtn.classList.add("expand_btn");
@@ -109,7 +109,7 @@ addListBtn.addEventListener("click", function () {
   let expandedListBtn = document.createElement("button");
   expandedListBtn.textContent = `목록추가${listCount}`;
   let img_e_add = document.createElement("img");
-  img_e_add.src = "/images/add_icon_circle.svg";
+  img_e_add.src = "images/add_icon_circle.svg";
   expandedListBtn.appendChild(img_e_add);
 
   expandedListBtn.classList.add("expanded_list");
@@ -164,7 +164,7 @@ addListBtn.addEventListener("click", function () {
 
       let expandBtn_e = document.createElement("button");
       let img_e_expand = document.createElement("img");
-      img_e_expand.src = "/images/expand_btn.svg";
+      img_e_expand.src = "images/expand_btn.svg";
       img_e_expand.alt = "더보기";
       expandBtn_e.appendChild(img_e_expand);
       expandBtn_e.classList.add("expand_btn_e");
