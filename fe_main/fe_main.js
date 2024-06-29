@@ -31,7 +31,6 @@ const currentDateElement = document.getElementById("current_date");
 currentDateElement.textContent = `${year}.${month}`;
 
 // today 투두리스트 추가 버튼
-// today 투두리스트 추가 버튼
 const todoInputBtn = document.querySelector(".todo_input");
 const inputField = document.querySelector(".input_field");
 
@@ -103,89 +102,117 @@ let listCount = 1;
 addListBtn.addEventListener("click", function () {
   const todoListContainer = document.querySelector(".todo_list");
 
-  let newSection = document.createElement("section");
-  newSection.classList.add("expanded_list_section");
+  // 목록 추가 버튼 숨기기
+  addListBtn.style.display = "none";
 
-  let expandedListBtn = document.createElement("button");
-  expandedListBtn.textContent = `목록추가${listCount}`;
-  let img_e_add = document.createElement("img");
-  img_e_add.src = "images/add_icon_circle.svg";
-  expandedListBtn.appendChild(img_e_add);
+  // 리스트 이름 입력 창 생성
+  let listNameInput = document.createElement("input");
+  listNameInput.type = "text";
+  listNameInput.classList.add("list_name_input");
+  listNameInput.placeholder = "목록추가";
 
-  expandedListBtn.classList.add("expanded_list");
+  // 리스트 이름 입력 창을 목록 추가 버튼 위치에 삽입
+  todoListContainer.insertBefore(listNameInput, addListBtn);
 
-  let inputField_e = document.createElement("input");
-  inputField_e.type = "text";
-  inputField_e.classList.add("input_field_e");
-  inputField_e.placeholder = "할 일 입력";
-  inputField_e.style.display = "none";
+  listNameInput.focus();
 
-  let todoList_e = document.createElement("ul");
-  todoList_e.classList.add("todo_list_e");
-
-  expandedListBtn.addEventListener("click", function () {
-    inputField_e.style.display = "block";
-    inputField_e.focus();
-  });
-
-  newSection.appendChild(expandedListBtn);
-  newSection.appendChild(inputField_e);
-  newSection.appendChild(todoList_e);
-
-  // 새로운 섹션을 목록 추가 버튼 위에 삽입
-  todoListContainer.insertBefore(newSection, addListBtn);
-
-  listCount++;
-
-  inputField_e.addEventListener("keypress", function (e) {
+  listNameInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
-      paintToDo_e(newSection);
+      const listName = listNameInput.value.trim();
+
+      if (listName) {
+        let newSection = document.createElement("section");
+        newSection.classList.add("expanded_list_section");
+
+        let expandedListBtn = document.createElement("button");
+        expandedListBtn.textContent = listName;
+        let img_e_add = document.createElement("img");
+        img_e_add.src = "images/add_icon_circle.svg";
+        expandedListBtn.appendChild(img_e_add);
+
+        expandedListBtn.classList.add("expanded_list");
+
+        let inputField_e = document.createElement("input");
+        inputField_e.type = "text";
+        inputField_e.classList.add("input_field_e");
+        inputField_e.placeholder = "할 일 입력";
+        inputField_e.style.display = "none";
+
+        let todoList_e = document.createElement("ul");
+        todoList_e.classList.add("todo_list_e");
+
+        expandedListBtn.addEventListener("click", function () {
+          inputField_e.style.display = "block";
+          inputField_e.focus();
+        });
+
+        newSection.appendChild(expandedListBtn);
+        newSection.appendChild(inputField_e);
+        newSection.appendChild(todoList_e);
+
+        // 새로운 섹션을 목록 추가 버튼 위에 삽입
+        todoListContainer.insertBefore(newSection, addListBtn);
+
+        listCount++;
+
+        inputField_e.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            paintToDo_e(newSection);
+          }
+        });
+
+        function paintToDo_e(section) {
+          const newTodo_e = inputField_e.value.trim();
+
+          if (newTodo_e === "") {
+            alert("할 일을 입력해주세요.");
+          } else {
+            let li_e = document.createElement("li");
+            li_e.classList.add("todo_item_e");
+
+            let checkbox_e = document.createElement("input");
+            checkbox_e.type = "checkbox";
+            li_e.appendChild(checkbox_e);
+            checkbox_e.classList.add("checkbox_e");
+
+            let todoText_e = document.createElement("span");
+            todoText_e.textContent = ` ${newTodo_e}`;
+            todoText_e.classList.add("todo_text_e");
+            li_e.appendChild(todoText_e);
+
+            let expandBtn_e = document.createElement("button");
+            let img_e_expand = document.createElement("img");
+            img_e_expand.src = "images/expand_btn.svg";
+            img_e_expand.alt = "더보기";
+            expandBtn_e.appendChild(img_e_expand);
+            expandBtn_e.classList.add("expand_btn_e");
+            li_e.appendChild(expandBtn_e);
+
+            section.querySelector(".todo_list_e").appendChild(li_e);
+            inputField_e.value = "";
+
+            // 체크박스 클릭 시 글자색 변경
+            checkbox_e.addEventListener("change", function () {
+              if (this.checked) {
+                todoText_e.style.opacity = "0.3";
+              } else {
+                todoText_e.style.opacity = "1";
+              }
+            });
+
+            expandBtn_e.addEventListener("click", function () {
+              inputField_e.style.display = "block";
+              inputField_e.focus();
+            });
+          }
+        }
+
+        // 리스트 이름 입력 창 제거 후 목록 추가 버튼 다시 표시
+        listNameInput.remove();
+        addListBtn.style.display = "inline-block";
+      } else {
+        alert("목록 이름을 입력해주세요.");
+      }
     }
   });
-
-  function paintToDo_e(section) {
-    const newTodo_e = inputField_e.value.trim();
-
-    if (newTodo_e === "") {
-      alert("할 일을 입력해주세요.");
-    } else {
-      let li_e = document.createElement("li");
-      li_e.classList.add("todo_item_e");
-
-      let checkbox_e = document.createElement("input");
-      checkbox_e.type = "checkbox";
-      li_e.appendChild(checkbox_e);
-      checkbox_e.classList.add("checkbox_e");
-
-      let todoText_e = document.createElement("span");
-      todoText_e.textContent = ` ${newTodo_e}`;
-      todoText_e.classList.add("todo_text_e");
-      li_e.appendChild(todoText_e);
-
-      let expandBtn_e = document.createElement("button");
-      let img_e_expand = document.createElement("img");
-      img_e_expand.src = "images/expand_btn.svg";
-      img_e_expand.alt = "더보기";
-      expandBtn_e.appendChild(img_e_expand);
-      expandBtn_e.classList.add("expand_btn_e");
-      li_e.appendChild(expandBtn_e);
-
-      section.querySelector(".todo_list_e").appendChild(li_e);
-      inputField_e.value = "";
-
-      // 체크박스 클릭 시 글자색 변경
-      checkbox_e.addEventListener("change", function () {
-        if (this.checked) {
-          todoText_e.style.opacity = "0.3";
-        } else {
-          todoText_e.style.opacity = "1";
-        }
-      });
-
-      expandBtn_e.addEventListener("click", function () {
-        inputField_e.style.display = "block";
-        inputField_e.focus();
-      });
-    }
-  }
 });

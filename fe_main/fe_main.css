@@ -309,3 +309,20 @@ li:hover {
   margin-bottom: 200px;
   margin-top: 50px;
 }
+
+.list_name_input {
+  display: flex;
+  width: 110px;
+  padding: 10px 20px;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 60px;
+  border: 2px solid var(--gray-30, #ababab);
+  background: var(--gray-00, #fff);
+  color: var(--gray-40, #919191);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+}
