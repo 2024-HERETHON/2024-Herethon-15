@@ -97,7 +97,6 @@ toDoInput.addEventListener("keypress", function (e) {
 
 // 목록 추가 버튼
 const addListBtn = document.querySelector(".add_list");
-let listCount = 1;
 
 addListBtn.addEventListener("click", function () {
   const todoListContainer = document.querySelector(".todo_list");
@@ -152,8 +151,6 @@ addListBtn.addEventListener("click", function () {
 
         // 새로운 섹션을 목록 추가 버튼 위에 삽입
         todoListContainer.insertBefore(newSection, addListBtn);
-
-        listCount++;
 
         inputField_e.addEventListener("keypress", function (e) {
           if (e.key === "Enter") {
