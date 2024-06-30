@@ -356,9 +356,8 @@ li:hover {
   flex-shrink: 0;
   background-color: #c4c4c4;
   border-radius: 8px;
-  position: relative;
-  z-index: 999;
-  text-align: center;
+  position: absolute;
+  margin: -280px 10px 10px 40px;
 }
 
 .edit_btn,
@@ -409,4 +408,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: transparent;
   background: transparent;
   cursor: pointer;
+}
+
+.calendar_container {
+  position: relative;
 }
