@@ -1,28 +1,4 @@
-// const todo_rating = (e) => {
-//   e.array.forEach((e) => {
-//     let completed_cnt = 0;
-//     let memo_length = e.memo.length;
-//     e.memo.forEach((memo) => {
-//       if (memo.complete == true) completed_cnt++;
-//     });
-//     const ratio = Math.round((completed_cnt / memo_length) * 100);
-
-//     const callenderBox = document.querySelector(".callender_box");
-
-//     if (ratio === 100) {
-//       callenderBox.classList.add("full");
-//       callenderBox.classList.remove("half", "less");
-//     } else if (ratio >= 50 && ratio < 100) {
-//       callenderBox.classList.add("half");
-//       callenderBox.classList.remove("full", "less");
-//     } else {
-//       callenderBox.classList.add("less");
-//       callenderBox.classList.remove("full", "half");
-//     }
-//   });
-// };
-
-//달력 텍스트 설정(현재 연도+월)
+// 달력 텍스트 설정(현재 연도+월)
 let date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth() + 1;
@@ -63,20 +39,17 @@ function paintToDo() {
     todoText.classList.add("todo_text");
     li.appendChild(todoText);
 
-    let expandBtn = document.createElement("button");
-    let img = document.createElement("img");
-    img.src = "images/expand_btn.svg";
-    img.alt = "더보기";
-    expandBtn.appendChild(img);
-    expandBtn.classList.add("expand_btn");
-    expandBtn.addEventListener("click", function () {
-      li.querySelector(".input_field_e").style.display = "block";
-      li.querySelector(".input_field_e").focus();
-    });
-    li.appendChild(expandBtn);
+    let editBtn = document.createElement("button");
+    editBtn.classList.add("edit_btn");
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("del_btn");
+
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
 
     toDoList.appendChild(li);
-    toDoInput.value = "";
+    toDoInput.value = ""; // 투두 입력 시 input 칸 초기화
 
     // 체크박스 클릭 시 글자색 변경
     checkbox.addEventListener("change", function () {
@@ -85,6 +58,35 @@ function paintToDo() {
       } else {
         todoText.style.opacity = "1";
       }
+      updateCompleteRate();
+    });
+
+    // 편집 버튼 클릭 시 텍스트 수정 기능
+    editBtn.addEventListener("click", function () {
+      let editInput = document.createElement("input");
+      editInput.type = "text";
+      editInput.value = todoText.textContent.trim();
+      editInput.classList.add("edit_todo");
+
+      li.replaceChild(editInput, todoText); // 기존 텍스트 대체
+
+      editInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          if (editInput.value.trim() === "") {
+            alert("수정할 내용을 입력해주세요.");
+          } else {
+            todoText.textContent = ` ${editInput.value.trim()}`;
+            li.replaceChild(todoText, editInput); // 수정된 텍스트 반영
+          }
+        }
+      });
+
+      editInput.focus();
+    });
+
+    // 삭제 버튼 클릭 시 실행될 코드
+    deleteBtn.addEventListener("click", function () {
+      toDoList.removeChild(li);
     });
   }
 }
@@ -95,20 +97,43 @@ toDoInput.addEventListener("keypress", function (e) {
   }
 });
 
-// 목록 추가 버튼
+// today ToDo 달성 비율 계산 및 달성률에 따른 박스 색 설정
+function updateCompleteRate() {
+  const checkboxes = document.querySelectorAll(".checkbox");
+  const total = checkboxes.length;
+  const completed = Array.from(checkboxes).filter(
+    (checkbox) => checkbox.checked
+  ).length;
+  const percentage = total === 0 ? 0 : (completed / total) * 100;
+
+  const ratioBox = document.querySelector(".ratio_box");
+
+  if (percentage === 0) {
+    ratioBox.style.backgroundColor = "";
+  } else if (percentage > 0 && percentage < 30) {
+    ratioBox.style.backgroundColor = "#F1E1FE";
+  } else if (percentage >= 30 && percentage < 50) {
+    ratioBox.style.backgroundColor = "#DBB0FC";
+  } else if (percentage >= 50 && percentage < 75) {
+    ratioBox.style.backgroundColor = "#AD4EF9";
+  } else if (percentage >= 75 && percentage <= 100) {
+    ratioBox.style.backgroundColor = "#7D08D9";
+  }
+}
+
+// todo 목록 추가 버튼
 const addListBtn = document.querySelector(".add_list");
 
 addListBtn.addEventListener("click", function () {
   const todoListContainer = document.querySelector(".todo_list");
 
-  // 목록 추가 버튼 숨기기
   addListBtn.style.display = "none";
 
   // 리스트 이름 입력 창 생성
   let listNameInput = document.createElement("input");
   listNameInput.type = "text";
   listNameInput.classList.add("list_name_input");
-  listNameInput.placeholder = "목록추가";
+  listNameInput.placeholder = "목록 추가";
 
   // 리스트 이름 입력 창을 목록 추가 버튼 위치에 삽입
   todoListContainer.insertBefore(listNameInput, addListBtn);
@@ -128,7 +153,6 @@ addListBtn.addEventListener("click", function () {
         let img_e_add = document.createElement("img");
         img_e_add.src = "images/add_icon_circle.svg";
         expandedListBtn.appendChild(img_e_add);
-
         expandedListBtn.classList.add("expanded_list");
 
         let inputField_e = document.createElement("input");
@@ -154,11 +178,11 @@ addListBtn.addEventListener("click", function () {
 
         inputField_e.addEventListener("keypress", function (e) {
           if (e.key === "Enter") {
-            paintToDo_e(newSection);
+            paintToDo_e(todoList_e);
           }
         });
 
-        function paintToDo_e(section) {
+        function paintToDo_e(list) {
           const newTodo_e = inputField_e.value.trim();
 
           if (newTodo_e === "") {
@@ -177,16 +201,52 @@ addListBtn.addEventListener("click", function () {
             todoText_e.classList.add("todo_text_e");
             li_e.appendChild(todoText_e);
 
-            let expandBtn_e = document.createElement("button");
-            let img_e_expand = document.createElement("img");
-            img_e_expand.src = "images/expand_btn.svg";
-            img_e_expand.alt = "더보기";
-            expandBtn_e.appendChild(img_e_expand);
-            expandBtn_e.classList.add("expand_btn_e");
-            li_e.appendChild(expandBtn_e);
+            // 날짜 입력 기능
+            let dateInput = document.createElement("input");
+            dateInput.type = "date";
+            dateInput.classList.add = "date_input";
+            li_e.appendChild(dateInput);
 
-            section.querySelector(".todo_list_e").appendChild(li_e);
+            //편집 버튼 생성
+            let editBtn_e = document.createElement("button");
+            editBtn_e.classList.add("edit_btn_e");
+            li_e.appendChild(editBtn_e);
+
+            //삭제 버튼 생성
+            let deleteBtn_e = document.createElement("button");
+            deleteBtn_e.classList.add("del_btn_e");
+            li_e.appendChild(deleteBtn_e);
+
+            list.appendChild(li_e);
             inputField_e.value = "";
+
+            // 편집 버튼 클릭 시 텍스트 수정 기능
+            editBtn_e.addEventListener("click", function () {
+              let editInput_e = document.createElement("input");
+              editInput_e.type = "text";
+              editInput_e.value = todoText_e.textContent.trim();
+              editInput_e.classList.add("edit_todo_e");
+
+              li_e.replaceChild(editInput_e, todoText_e); // 기존 텍스트 대체
+
+              editInput_e.focus(); // editInput_e에 포커스 설정
+
+              editInput_e.addEventListener("keypress", function (e) {
+                if (e.key === "Enter") {
+                  if (editInput_e.value.trim() === "") {
+                    alert("수정할 내용을 입력해주세요.");
+                  } else {
+                    todoText_e.textContent = editInput_e.value.trim(); // 수정된 텍스트 반영
+                    li_e.replaceChild(todoText_e, editInput_e);
+                  }
+                }
+              });
+            });
+
+            // 삭제 버튼 클릭 시 실행될 코드
+            deleteBtn_e.addEventListener("click", function () {
+              list.removeChild(li_e);
+            });
 
             // 체크박스 클릭 시 글자색 변경
             checkbox_e.addEventListener("change", function () {
@@ -197,7 +257,7 @@ addListBtn.addEventListener("click", function () {
               }
             });
 
-            expandBtn_e.addEventListener("click", function () {
+            editBtn_e.addEventListener("click", function () {
               inputField_e.style.display = "block";
               inputField_e.focus();
             });

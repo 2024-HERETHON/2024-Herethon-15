@@ -142,11 +142,11 @@ hr {
   margin: -950px 0px 0px 900px;
 }
 
-.todo_callender {
+.todo_calendar {
   margin: 100px 100px 100px 200px;
 }
 
-.callender_text {
+.calendar_text {
   color: var(--gray-80, #2b2b2b);
   font-family: Pretendard;
   font-size: 28px;
@@ -156,11 +156,11 @@ hr {
   display: flex;
 }
 
-.callender_text img {
+.calendar_text img {
   margin-right: 15px;
 }
 
-.callender_box {
+.calendar_box {
   display: inline-flex;
   width: 432px;
   height: 312px;
@@ -229,6 +229,27 @@ hr {
   line-height: 135%;
 }
 
+.edit_todo,
+.edit_todo_e {
+  width: 600px;
+  padding: 20px;
+  border: none;
+  background: transparent;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+.edit_todo:focus {
+  outline: none;
+}
+
+.edit_todo_e:focus {
+  outline: none;
+}
+
 .input_field_e {
   margin-top: -160px;
 }
@@ -237,7 +258,7 @@ hr {
 #todo_list_e {
   color: var(--gray-90, #131313);
   font-family: Pretendard;
-  font-size: 27px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 260%;
@@ -278,7 +299,7 @@ hr {
 
 li:hover {
   background-color: #f8f0fe;
-  width: 686px;
+  width: 696.5px;
   border-radius: 80px;
   cursor: pointer;
 }
@@ -327,4 +348,65 @@ li:hover {
   font-style: normal;
   font-weight: 400;
   line-height: 135%;
+}
+
+.ratio_box {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  position: relative;
+  z-index: 999;
+  text-align: center;
+}
+
+.edit_btn,
+.edit_btn_e {
+  background-image: url("images/edit_btn.svg");
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.del_btn,
+.del_btn_e {
+  background-image: url("images/del_btn.svg");
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding-right: 20px;
+  background: url("images/calendar_icon_purple.svg") no-repeat right 5px center /
+    24px auto;
+  border: none;
+  color: transparent;
+}
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
 }
