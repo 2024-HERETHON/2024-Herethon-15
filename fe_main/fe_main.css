@@ -387,13 +387,19 @@ li:hover {
 
 input[type="date"] {
   position: relative;
-  width: 24px;
+  width: 120px;
   height: 24px;
-  padding-right: 20px;
-  background: url("images/calendar_icon_purple.svg") no-repeat right 5px center /
+  padding-right: 7px;
+  background: url("images/calendar_icon_purple.svg") no-repeat left center /
     24px auto;
   border: none;
-  color: transparent;
+  color: #7d08d9;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 input[type="date"]::-webkit-clear-button,
 input[type="date"]::-webkit-inner-spin-button {
