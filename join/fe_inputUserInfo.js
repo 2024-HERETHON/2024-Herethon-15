@@ -12,6 +12,10 @@ function test() {
     pw.value = "";
     pwCheck.value = "";
   } else {
-    location.href = "fe_inputUserPosition.html";
+    // location.href = "fe_inputUserPosition.html";
+    const nowDiv = document.querySelector("#display");
+    const nextDiv = document.querySelector("#notDisplay");
+    nowDiv.id = "notDisplay";
+    nextDiv.id = "display";
   }
 }
