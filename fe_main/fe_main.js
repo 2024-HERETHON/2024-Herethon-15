@@ -257,11 +257,6 @@ addListBtn.addEventListener("click", function () {
                 todoText_e.style.opacity = "1";
               }
             });
-
-            editBtn_e.addEventListener("click", function () {
-              inputField_e.style.display = "block";
-              inputField_e.focus();
-            });
           }
         }
 

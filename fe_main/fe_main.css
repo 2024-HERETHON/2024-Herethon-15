@@ -1,6 +1,6 @@
 .container {
   width: 1777px;
-  height: 1080px;
+  height: 1446px;
   margin: 0 auto;
 }
 
@@ -139,7 +139,7 @@ hr {
 
 .todo_list {
   position: absolute;
-  margin: -950px 0px 0px 900px;
+  margin: -1350px 0px 0px 900px;
 }
 
 .todo_calendar {
@@ -436,4 +436,77 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 input[type="date"]:focus {
   outline: none;
+}
+
+.worry_container {
+  margin: 100px 100px 100px 200px;
+}
+
+.worry_text {
+  color: var(--gray-80, #2b2b2b);
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.worry_text_detail {
+  color: var(--gray-40, #919191);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  margin-top: 10px;
+}
+
+.worry_box {
+  display: flex;
+  width: 432px;
+  height: 130px;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gray-05, #f7f7f7);
+  margin-top: 10px;
+  color: var(--gray-50, #787878);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  resize: none;
+}
+
+.worry_box:focus {
+  outline-color: #7d08d9;
+}
+
+.comment_btn {
+  background-image: url("images/comment_btn.svg");
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: -20px;
+}
+
+.send_btn {
+  background-image: url("images/send_btn.svg");
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: absolute;
+  margin: -50px 0px 0px 435px;
 }
