@@ -14,6 +14,7 @@
   margin-right: auto;
   margin-left: 40px;
   letter-spacing: 0.1em;
+  margin-top: 50px;
 }
 
 .menu {
@@ -29,9 +30,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin-top: 50px;
 }
 
-.menu#home {
+.menu#search {
   color: #7d08d9;
 }
 
@@ -54,7 +56,7 @@ hr {
 }
 
 .profile_container {
-  margin: 100px 100px 100px 200px;
+  margin: 100px 100px 120px 200px;
   display: flex;
 }
 
@@ -70,6 +72,7 @@ hr {
   font-style: normal;
   font-weight: 500;
   line-height: 133%;
+  margin-bottom: -20px;
 }
 
 .profile_tag {
@@ -92,7 +95,7 @@ hr {
 
 .intro_box {
   width: 432px;
-  height: 120px;
+  height: 90px;
   padding: 24px;
   align-items: flex-start;
   gap: 10px;
@@ -108,33 +111,8 @@ hr {
   line-height: 120%;
 }
 
-.show_cheer {
-  display: flex;
-  margin: -80px 100px 100px 200px;
-}
-
-.cheer_icon {
-  color: var(--gray-90, #131313);
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%;
-  display: flex;
-}
-
-.cheer_icon img {
-  margin-left: 5px;
-}
-
-.cheer_cnt {
-  color: var(--purple-40, #7d08d9);
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%;
-  margin-left: 30px;
+.profile_img {
+  margin-top: 30px;
 }
 
 .todo_list {
@@ -143,7 +121,7 @@ hr {
 }
 
 .todo_calendar {
-  margin: 100px 100px 100px 200px;
+  margin: -410px 100px 100px 200px;
 }
 
 .calendar_text {
@@ -170,27 +148,26 @@ hr {
   border-radius: 28px;
   border: 2px solid var(--gray-10, #dedede);
   background: var(--gray-00, #fff);
-  margin-top: 5px;
 }
 
-.todo_input,
-.todo_input_e {
+.today_banner {
+  display: flex;
+  width: 176px;
+  height: 64px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 32px;
+  background: var(--purple-20, #dbb0fc);
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 135%;
-  display: flex;
-  height: 64px;
-  padding: 16px 12px 16px 32px;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  border-radius: 32px;
-  background: var(--purple-20, #dbb0fc);
   border: none;
-  cursor: pointer;
 }
 
 .add_list {
@@ -211,47 +188,6 @@ hr {
   border: none;
   cursor: pointer;
   margin-top: 200px;
-}
-
-.input_field,
-.input_field_e {
-  display: none;
-  align-self: stretch;
-  width: 704px;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid var(--purple-40, #7d08d9);
-  background: var(--gray-00, #fff);
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%;
-}
-
-.edit_todo,
-.edit_todo_e {
-  width: 600px;
-  padding: 20px;
-  border: none;
-  background: transparent;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%;
-}
-
-.edit_todo:focus {
-  outline: none;
-}
-
-.edit_todo_e:focus {
-  outline: none;
-}
-
-.input_field_e {
-  margin-top: -160px;
 }
 
 #todo_list,
@@ -333,23 +269,6 @@ li:hover {
   margin-top: 50px;
 }
 
-.list_name_input {
-  display: flex;
-  width: 110px;
-  padding: 10px 20px;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 60px;
-  border: 2px solid var(--gray-30, #ababab);
-  background: var(--gray-00, #fff);
-  color: var(--gray-40, #919191);
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%;
-}
-
 .ratio_box {
   width: 40px;
   height: 40px;
@@ -360,67 +279,74 @@ li:hover {
   margin: -280px 10px 10px 40px;
 }
 
-.edit_btn,
-.edit_btn_e {
-  background-image: url("images/edit_btn.svg");
-  background-color: transparent;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.del_btn,
-.del_btn_e {
-  background-image: url("images/del_btn.svg");
-  background-color: transparent;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-input[type="date"] {
-  position: relative;
-  width: 120px;
-  height: 24px;
-  padding-right: 7px;
-  background: url("images/calendar_icon_purple.svg") no-repeat left center /
-    24px auto;
-  border: none;
-  color: #7d08d9;
-  text-align: right;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-input[type="date"]::-webkit-clear-button,
-input[type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-input[type="date"]::-webkit-calendar-picker-indicator {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  background: transparent;
-  cursor: pointer;
-}
-
 .calendar_container {
   position: relative;
 }
 
-input[type="date"]:focus {
-  outline: none;
+.cheer_btn {
+  display: inline-flex;
+  padding-left: 15px;
+  width: 145px;
+  height: 48px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-40, #919191);
+  background: var(--gray-00, #fff);
+  color: var(--gray-90, #131313);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  cursor: pointer;
+  margin-top: 120px;
+  margin-left: -70px;
+}
+
+.follow_btn {
+  display: flex;
+  width: 225px;
+  height: 48px;
+  padding: 8px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: var(--purple-30, #ad4ef9);
+  color: var(--gray-00, #fff);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%;
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 200px;
+  border: none;
+  cursor: pointer;
+}
+
+.DM_btn {
+  margin: -80px 100px 100px 200px;
+  display: flex;
+  width: 225px;
+  height: 48px;
+  padding: 8px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: var(--gray-30, #ababab);
+  color: var(--gray-00, #fff);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%;
+  margin-left: 455px;
+  border: none;
+  cursor: pointer;
 }
