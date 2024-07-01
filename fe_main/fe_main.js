@@ -11,9 +11,14 @@ const todoInputBtn = document.querySelector(".todo_input");
 const inputField = document.querySelector(".input_field");
 
 todoInputBtn.addEventListener("click", function () {
-  todoInputBtn.classList.add("input_active");
-  inputField.style.display = "block";
-  inputField.focus();
+  if (!todoInputBtn.classList.contains("input_active")) {
+    todoInputBtn.classList.add("input_active");
+    inputField.style.display = "block";
+    inputField.focus();
+  } else {
+    todoInputBtn.classList.remove("input_active");
+    inputField.style.display = "none";
+  }
 });
 
 // today 투두리스트 추가
@@ -165,8 +170,12 @@ addListBtn.addEventListener("click", function () {
         todoList_e.classList.add("todo_list_e");
 
         expandedListBtn.addEventListener("click", function () {
-          inputField_e.style.display = "block";
-          inputField_e.focus();
+          if (inputField_e.style.display === "block") {
+            inputField_e.style.display = "none";
+          } else {
+            inputField_e.style.display = "block";
+            inputField_e.focus();
+          }
         });
 
         newSection.appendChild(expandedListBtn);
@@ -204,7 +213,7 @@ addListBtn.addEventListener("click", function () {
             // 날짜 입력 기능
             let dateInput = document.createElement("input");
             dateInput.type = "date";
-            dateInput.classList.add = "date_input";
+            dateInput.classList.add("date_input");
             dateInput.setAttribute("placeholder", "날짜를 선택하세요");
             li_e.appendChild(dateInput);
 
@@ -257,6 +266,14 @@ addListBtn.addEventListener("click", function () {
                 todoText_e.style.opacity = "1";
               }
             });
+
+            // 날짜 입력 시마다 정렬
+            dateInput.addEventListener("change", function () {
+              sortTodos(list);
+            });
+
+            // 처음 추가될 때도 정렬
+            sortTodos(list);
           }
         }
 
@@ -268,4 +285,25 @@ addListBtn.addEventListener("click", function () {
       }
     }
   });
+});
+
+// 투두 날짜순 정렬
+function sortTodos(list) {
+  let items = Array.from(list.children);
+
+  items.sort((a, b) => {
+    let dateA = a.querySelector(".date_input").value;
+    let dateB = b.querySelector(".date_input").value;
+
+    return new Date(dateA) - new Date(dateB);
+  });
+
+  items.forEach((item) => list.appendChild(item));
+}
+
+// menu 간격 조정
+const menus = document.querySelectorAll(".menu");
+
+menus.forEach((menu, index) => {
+  menu.style.left = `${15 + index * 150}px`;
 });
