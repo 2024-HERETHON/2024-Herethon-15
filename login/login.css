@@ -32,6 +32,7 @@ body {
   margin-top: 60px;
   font-family: IBM Plex Mono;
   font-size: 48px;
+  font-weight: 600;
 }
 
 /* login */
@@ -45,19 +46,24 @@ body {
   gap: 20px;
 }
 
+.li_login_btn {
+  text-decoration-line: none;
+  margin-top: 320px;
+}
+
 .login_box {
   background-color: #7d08d9;
   width: 500px;
   height: 80px;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .login_box span {
   color: #ffffff;
-  width: 80px;
-  height: 32px;
-
   font-family: Pretendard;
-  text-align: left;
   font-size: 24px;
 }
 /* .li_login_wrap {
@@ -72,12 +78,12 @@ body {
 .li_email_input {
   width: 500px;
   height: 72px;
-
   font-family: Pretendard;
   text-align: left;
   font-size: 24px;
   border: 3px solid #787878;
   border-radius: 10px;
+  padding-left: 20px;
 }
 
 .li_pw_input {
@@ -88,11 +94,11 @@ body {
   font-size: 24px;
   border-radius: 10px;
   border: 3px solid #787878;
+  padding-left: 20px;
 }
 
 .join_wrap {
-  width: 279px;
-  height: 25px;
+  margin-top: 20px;
 }
 
 .join_wrap span {
@@ -104,15 +110,11 @@ body {
 }
 
 .li_join {
-  width: 70px;
-  height: 25px;
-  position: absolute;
   margin-right: 10px;
 }
 
 .li_join span {
   color: #7d08d9;
-  height: 24px;
   font-family: Pretendard;
   font-size: 20px;
   border: none;
