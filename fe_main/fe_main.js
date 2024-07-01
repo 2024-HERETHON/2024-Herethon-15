@@ -205,6 +205,7 @@ addListBtn.addEventListener("click", function () {
             let dateInput = document.createElement("input");
             dateInput.type = "date";
             dateInput.classList.add = "date_input";
+            dateInput.setAttribute("placeholder", "날짜를 선택하세요");
             li_e.appendChild(dateInput);
 
             //편집 버튼 생성

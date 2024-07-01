@@ -229,10 +229,21 @@ hr {
   line-height: 135%;
 }
 
-.edit_todo,
 .edit_todo_e {
-  width: 600px;
-  padding: 20px;
+  width: 410px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+.edit_todo {
+  width: 560px;
+  padding: 10px;
   border: none;
   background: transparent;
   font-family: Pretendard;
@@ -300,8 +311,7 @@ hr {
 li:hover {
   background-color: #f8f0fe;
   width: 687px;
-  border-radius: 80px;
-  cursor: pointer;
+  border-radius: 10px;
 }
 
 .expand_btn,
@@ -370,7 +380,8 @@ li:hover {
   width: 30px;
   height: 30px;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: -20px;
+  margin-left: 20px;
 }
 
 .del_btn,
@@ -383,14 +394,16 @@ li:hover {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  margin-right: 5px;
+  margin-left: 40px;
 }
 
 input[type="date"] {
   position: relative;
   width: 120px;
   height: 24px;
-  padding-right: 7px;
-  background: url("images/calendar_icon_purple.svg") no-repeat left center /
+  padding-right: 33px;
+  background: url("images/calendar_icon_purple.svg") no-repeat right 1px center /
     24px auto;
   border: none;
   color: #7d08d9;
