@@ -1,18 +1,19 @@
 body {
   background-color: #f7f7f7;
+  margin: 0px;
 }
 
 .window {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1920px;
-  height: 1080px;
+  width: max(99vw, 1024px);
+  height: max(99vh, 928px);
 }
 
 .mainContainer {
   width: 1024px;
-  height: 920px;
+  height: 928px;
   background-color: white;
   border-radius: 32px;
   display: flex;

@@ -7,8 +7,8 @@ body {
 }
 
 .login_background {
-  width: 98vw;
-  height: 99vh;
+  width: max(99vw, 692px);
+  height: max(99vh, 849px);
   display: flex;
   justify-content: center;
   align-items: center;

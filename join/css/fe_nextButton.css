@@ -10,11 +10,11 @@
   position: absolute;
   align-items: center;
   width: 1024px;
-  top: 800px;
+  top: 780px;
   a {
     color: #7d08d9;
     font-weight: bold;
-    text-decoration-line: none;
+    text-underline-position: under;
   }
 }
 
@@ -28,5 +28,5 @@
   font-size: 24px;
   font-family: "Pretendard-Regular";
   position: absolute;
-  top: 870px;
+  top: 840px;
 }
