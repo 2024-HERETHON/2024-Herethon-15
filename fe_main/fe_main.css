@@ -35,10 +35,6 @@
   margin: 15px 0px 10px 1460px;
 }
 
-.menu:not(:last-child) {
-  margin-bottom: 30px;
-}
-
 .menu#home {
   color: #7d08d9;
 }

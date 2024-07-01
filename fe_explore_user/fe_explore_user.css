@@ -14,11 +14,12 @@
   margin-right: auto;
   margin-left: 40px;
   letter-spacing: 0.1em;
-  margin-top: 50px;
+  position: fixed;
+  margin-top: 5px;
+  margin-left: 20px;
 }
 
 .menu {
-  align-items: right;
   padding-left: 50px;
   padding-right: 50px;
   color: #454545;
@@ -30,7 +31,8 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-top: 50px;
+  position: fixed;
+  margin: 15px 0px 10px 1460px;
 }
 
 .menu#search {
@@ -53,6 +55,8 @@ hr {
   height: 2px;
   background-color: #c4c4c4;
   border: 0;
+  position: fixed;
+  margin-top: 60px;
 }
 
 .profile_container {
@@ -132,6 +136,7 @@ hr {
   font-weight: 500;
   line-height: 130%;
   display: flex;
+  margin-left: 180px;
 }
 
 .calendar_text img {
@@ -280,7 +285,8 @@ li:hover {
 }
 
 .calendar_container {
-  position: relative;
+  position: absolute;
+  margin-left: 170px;
 }
 
 .cheer_btn {
