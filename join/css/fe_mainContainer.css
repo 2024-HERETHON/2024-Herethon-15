@@ -11,8 +11,12 @@ body {
   height: max(99vh, 849px);
 }
 
-#notDisplay {
+.step {
   display: none;
+}
+
+.step.active {
+  display: flex;
 }
 
 .mainContainer {

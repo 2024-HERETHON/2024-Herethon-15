@@ -13,9 +13,9 @@ function test() {
     pwCheck.value = "";
   } else {
     // location.href = "fe_inputUserPosition.html";
-    const nowDiv = document.querySelector("#display");
-    const nextDiv = document.querySelector("#notDisplay");
-    nowDiv.id = "notDisplay";
-    nextDiv.id = "display";
+    const nowDiv = document.querySelector("#active");
+    const nextDiv = document.querySelectorAll("#step")[1];
+    nowDiv.classList.remove("active");
+    nextDiv.classList.add("active");
   }
 }
