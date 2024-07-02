@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', todos.views.todo, name='todo'),
     path('accounts/', include('accounts.urls')),
+    path('search/', include('search.urls')), 
 ]

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codea : 여성 개발자들의 놀이터</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/fe_explore_user.css' %}" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">codea</div>
+        <button class="menu" id="home">홈</button>
+        <button class="menu" id="search">탐색</button>
+        <button class="menu" id="logout">로그아웃</button>
+      </nav>
+
+      <hr />
+
+      <section>
+        <div class="profile_container">
+          <img src="{% static 'imag/profile.svg' %}" class="profile_img" />
+          <div class="profile_info">
+            <div class="profile_name">{{post.username}}</div>
+            <br />
+            <div class="profile_tag">{{post.userPosition}}</div>
+          </div>
+          <button class="cheer_btn">
+            응원하기 <img src="{% static 'imag/cheer_fist.svg' %}">
+          </button>
+        </div>
+        <div class="intro_box">introduction...
+        </div>
+        <button class="follow_btn" id="follow_btn">팔로우</button>
+        <button class="DM_btn">DM</button>
+        </div>
+      </section>
+
+      <section class="todo_calendar">
+        <div class="calendar_text">
+          <img src="{% static 'imag/calendar_icon.svg' %}" />
+          <span id="current_date"></span>
+        </div>
+        <div class="calendar_container">
+          <div class="calendar_box"></div>
+          <div class="ratio_box"></div>
+        </div>
+      </section>
+
+      <section class="todo_list">
+        <br />
+        <button class="today_banner">
+          Today
+        </button>
+        <br />
+        <br />
+        <ul id="todo_list" style="list-style-type: none"></ul>
+        <br /><br />
+      </section>
+      <script src="{% static 'js/fe_explore_user.js' %}"></script>
+    </div>
+  </body>
+</html>

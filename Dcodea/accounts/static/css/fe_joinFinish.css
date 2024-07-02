@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+}
+
+.checkPic {
+  margin-top: 8%;
+}
+
+.helloUser {
+  font-family: "Pretendard-Regular";
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.loginGo {
+  font-size: 32px;
+  color: #454545;
+  margin-top: -8%;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fe_mainContainer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fe_titleCodea.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fe_inputUserInfo.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/fe_inputChoiceButton.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fe_nextButton.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fe_inputQuestion.css' %}" />
+  </head>
+  <body>
+    <div class="window" id="display">
+      <div class="mainContainer">
+        <div class="titleCodea">codea</div>
+        <form
+          id="signupForm"
+          method="post"
+          action="{% url 'accounts:signup' %}"
+        >
+          <!-- step1 -->
+          {% csrf_token %}
+          <div id="step1" class="step active">
+            <div class="contentContainer">
+              <div class="inputUserInfoContainer">
+                <div class="userInfoInput">
+                  <label for="username" class="userInfo_label">이름</label>
+                  <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    placeholder="이름"
+                    autofocus
+                  />
+                </div>
+                <div class="userInfoInput">
+                  <label for="userId" class="userInfo_label">아이디</label>
+                  <input
+                    id="userId"
+                    name="userId"
+                    type="email"
+                    placeholder="이메일"
+                  />
+                </div>
+                <div class="userInfoInput">
+                  <label for="password1" class="userInfo_label">비밀번호</label>
+                  <input
+                    id="password1"
+                    name="password1"
+                    type="password"
+                    placeholder="비밀번호"
+                  />
+                  <input
+                    id="password2"
+                    name="password2"
+                    type="password"
+                    placeholder="비밀번호 확인"
+                  />
+                </div>
+              </div>
+              <p class="alreadyJoined">
+                이미 등록된 계정이 있으신가요?&nbsp;&nbsp;
+                <a href="{% url 'accounts:login' %}">로그인</a>
+              </p>
+              <button
+                type="button"
+                class="nextButton"
+                onclick="checkFullInput()"
+              >
+                다음으로 →
+              </button>
+            </div>
+          </div>
+
+          <!-- step2 -->
+          <div id="step2" class="step">
+            <div class="contentContainer">
+              <p class="inputQuestion">
+                희망 직군 혹은 현재 속한 직군을 골라주세요!
+              </p>
+              <div class="choice_container">
+                <input
+                  type="radio"
+                  name="userPosition"
+                  id="frontend"
+                  value="frontend"
+                />
+                <label for="frontend" class="choice_label">프론트엔드</label>
+
+                <input
+                  type="radio"
+                  name="userPosition"
+                  id="backend"
+                  value="backend"
+                />
+                <label for="backend" class="choice_label">백엔드</label>
+
+                <input
+                  type="radio"
+                  name="userPosition"
+                  id="fullstack"
+                  value="fullstack"
+                />
+                <label for="fullstack" class="choice_label">풀스택</label>
+
+                <input
+                  type="radio"
+                  name="userPosition"
+                  id="undefined"
+                  value="undefined"
+                />
+                <label for="undefined" class="choice_label">미정</label>
+              </div>
+              <button
+                type="button"
+                class="nextButton"
+                onclick="checkSelectedPosition()"
+              >
+                다음으로 →
+              </button>
+            </div>
+          </div>
+
+          <!-- step3 -->
+          <div id="step3" class="step">
+            <div class="contentContainer">
+              <p class="inputQuestion">
+                나의 To Do를 다른 사용자들도 볼 수 있도록 공개하시겠습니까?
+              </p>
+              <div class="choice_container">
+                <input type="radio" name="userOpen" id="public" value="True" />
+                <label for="public" class="choice_label">공개</label>
+                <input
+                  type="radio"
+                  name="userOpen"
+                  id="private"
+                  value="False"
+                />
+                <label for="private" class="choice_label">비공개</label>
+              </div>
+              <button
+                type="button"
+                class="nextButton"
+                onclick="checkSelectedOpen()"
+              >
+                회원가입 하기
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="{% static 'javascript/be_showNextContainer.js' %}" type="text/javascript"></script>
+    <!-- <script src="fe_inputUserInfo.js" type="text/javascript"></script>
+    <script src="fe_inputUserPosition.js" type="text/javascript"></script>
+    <script src="fe_inputUserOpen.js" type="text/javascript"></script> -->
+    <!-- <script>
+      let currentStep = 0;
+      function showStep(step) {
+        document.querySelectorAll(".step").forEach((el, index) => {
+          el.classList.toggle("active", index === step);
+        });
+      }
+      function nextStep() {
+        currentStep++;
+        showStep(currentStep);
+      }
+      document.addEventListener("DOMContentLoaded", showStep(currentStep));
+    </script> -->
+  </body>
+</html>

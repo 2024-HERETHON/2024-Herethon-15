@@ -16,11 +16,16 @@ def signup_view(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
             login(request, user)
-            return redirect('accounts:login')
+            request.session['username'] = user.username  # 사용자 이름을 세션에 저장
+            return redirect('accounts:join')
     else:
         form = SignUpForm()
 
-    return render(request, 'fe_showJoinContainer.html', {'form': form})
+    return render(request, 'be_showJoinContainer.html', {'form': form})
+
+def joinfinish_view(request):
+    username = request.session.get('username')
+    return render(request, 'fe_JoinFinish.html', {'username': username})
 
 def login_view(request):
     if request.method == 'POST':
