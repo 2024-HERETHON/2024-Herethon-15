@@ -28,7 +28,7 @@
         <button class="menu" id="logout">로그아웃</button>
       </nav>
 
-      <hr />
+      <hr class="nav_hr" />
 
       <section>
         <div class="profile_container">
@@ -70,7 +70,25 @@
           placeholder="고민을 입력해보세요!"
         ></textarea>
         <button class="send_btn"></button>
-        <button class="comment_btn"></button>
+        <button class="comment_btn" id="comment_btn"></button>
+        <div class="comment_bg"></div>
+        <div class="modal_wrap">
+          <div class="comment_close"><a href="#">x</a></div>
+          <div class="comment_content">
+            <div class="modal_worry">
+              <div class="worry_text">고민이 있나요?</div>
+              <div class="worry_text_detail">
+                익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
+              </div>
+              <textarea
+                class="modal_worry_box"
+                placeholder="고민을 입력해보세요!"
+              ></textarea>
+              <div class="comment_container" id="comments_section"></div>
+              <div class="comments_section" id="comments_section"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="todo_list">

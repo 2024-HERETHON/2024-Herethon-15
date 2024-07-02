@@ -307,3 +307,69 @@ const menus = document.querySelectorAll(".menu");
 menus.forEach((menu, index) => {
   menu.style.left = `${15 + index * 150}px`;
 });
+
+// 모달창 조작
+window.onload = function () {
+  function commentOnClick() {
+    document.querySelector(".modal_wrap").style.display = "block";
+    document.querySelector(".comment_bg").style.display = "block";
+  }
+  function commentOffClick() {
+    document.querySelector(".modal_wrap").style.display = "none";
+    document.querySelector(".comment_bg").style.display = "none";
+  }
+  document
+    .getElementById("comment_btn")
+    .addEventListener("click", commentOnClick);
+  document
+    .querySelector(".comment_close")
+    .addEventListener("click", commentOffClick);
+};
+
+// 모달창 댓글 부분
+// 더미 데이터
+const dummyComments = [
+  {
+    id: 1,
+    username: "익명",
+    content:
+      "구체적 표현은 생각나지 않지만, 제가 공학 전공인데도 '여자니까 잘 모르겠지' 하는 게 기본적으로 깔려 있던 것 같아요. 컴퓨터 수리하시는 분이 오셨을 때도 설명을 하시면서 제가 아무것도 모른다는 듯이 이야기하시더라고요. 그리고 같은 근로생 분들조차도 제가 여자라는 이유로 그렇게 설명해주시는 경우가 제법 많았었고요. 옆에 계시던 임원분이 '얘도 전공자니까 안다'고 말씀하시니 그제야 (앞의 말씀을) 정정하셨어요. 그런데 그 뒤에도 지식을 실험해보는 듯한 질문을 많이 들었어요.",
+  },
+  {
+    id: 2,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+  {
+    id: 3,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+  {
+    id: 4,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+];
+
+// 댓글 표시 함수
+function displayComment(comments) {
+  const commentsSection = document.getElementById("comments_section");
+  commentsSection.innerHTML = "";
+  comments.forEach((comment) => {
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "comment";
+    const commentProfile = document.createElement("img");
+    commentProfile.src = "images/comment_profile.svg";
+    commentProfile.className = "comment_profile";
+    commentsSection.appendChild(commentProfile);
+    const hrElement = document.createElement("hr");
+    hrElement.classList.add("hr_element");
+    commentDiv.innerHTML = `<strong>${comment.username}</strong><br/>${comment.content}`;
+    commentsSection.appendChild(commentDiv);
+    commentDiv.appendChild(hrElement);
+  });
+}
+
+// 댓글 표시 함수 호출
+displayComment(dummyComments);
