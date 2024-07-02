@@ -367,7 +367,7 @@ function displayComment(comments) {
     hrElement.classList.add("hr_element");
     commentDiv.innerHTML = `<strong>${comment.username}</strong><br/>${comment.content}`;
     commentsSection.appendChild(commentDiv);
-    commentDiv.appendChild(hrElement);
+    commentsSection.appendChild(hrElement);
   });
 }
 
