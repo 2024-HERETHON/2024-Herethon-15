@@ -14,48 +14,47 @@
     />
   </head>
   <body>
-    <div class="container">
-      <form class="login_wrap">
+    <div class="login_background">
+      <div class="login_container">
+        <span class="li_codea">codea</span>
+        <form class="login_wrap">
+          <input
+            class="li_email_input"
+            id="li_email_input"
+            type="text"
+            placeholder="아이디"
+            required
+          />
+          <input
+            class="li_pw_input"
+            id="li_pw_input"
+            type="password"
+            placeholder="비밀번호"
+            required
+          />
+          <!-- <div class="li_login_wrap">
+            <div class="idpw">
+              <div class="li_email"></div>
+              <div class="li_pw"></div>
+            </div>
+          </div> -->
+        </form>
+        <div class="join_wrap">
+          <span>아직 회원이 아니신가요?</span>
+          <a
+            id="li_join"
+            class="li_join"
+            href="../../join/fe_inputUserInfo.html"
+          >
+            <span>회원가입</span>
+          </a>
+        </div>
         <a id="li_login_btn" class="li_login_btn" href="">
           <div class="login_box">
             <span>로그인</span>
           </div>
         </a>
-
-        <div class="li_login_wrap">
-          <div class="idpw">
-            <div class="li_email">
-              <input
-                class="li_email_input"
-                id="li_email_input"
-                type="text"
-                placeholder="아이디"
-                required
-              />
-            </div>
-            <div class="li_pw">
-              <input
-                class="li_pw_input"
-                id="li_pw_input"
-                type="password"
-                placeholder="비밀번호"
-                required
-              />
-            </div>
-          </div>
-          <div class="join_wrap">
-            <span>아직 회원이 아니신가요?</span>
-            <a
-              id="li_join"
-              class="li_join"
-              href="../../join/fe_inputUserInfo.html"
-            >
-              <span>회원가입</span>
-            </a>
-          </div>
-        </div>
-        <span class="li_codea">codea</span>
-      </form>
+      </div>
     </div>
     <script src="./login.js"></script>
   </body>

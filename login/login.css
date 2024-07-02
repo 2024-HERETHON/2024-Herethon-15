@@ -1,129 +1,121 @@
 /* 전체 이용 */
-
-.container {
+body {
   background-color: #f7f7f7;
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
+  margin: 0px;
+  display: flex;
+  font-family: Pretendard;
+}
+
+.login_background {
+  width: 98vw;
+  height: 99vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container {
+  width: 692px;
+  height: 849px;
+  background-color: white;
+  display: flex;
+  border-radius: 32px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.li_codea {
+  color: #7d08d9;
+  width: 144px;
+  height: 64px;
+  display: flex;
+  margin-top: 60px;
+  font-family: IBM Plex Mono;
+  font-size: 48px;
 }
 
 /* login */
 .login_wrap {
-  width: 692px;
-  height: 920px;
-  position: absolute;
-  left: 614px;
-  top: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #ffffff;
-  border-radius: 32px;
+  margin-top: 40px;
+  gap: 20px;
 }
 
 .login_box {
   background-color: #7d08d9;
   width: 500px;
   height: 80px;
-  position: absolute;
-  left: 96px;
-  top: 784px;
   border-radius: 12px;
 }
 .login_box span {
   color: #ffffff;
   width: 80px;
   height: 32px;
-  position: absolute;
-  left: 218.5px;
-  top: 24px;
+
   font-family: Pretendard;
   text-align: left;
   font-size: 24px;
 }
-.li_login_wrap {
+/* .li_login_wrap {
   width: 500px;
   height: 217px;
-  position: absolute;
-  left: 96px;
-  top: 168px;
 }
 .idpw {
   width: 500px;
   height: 168px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
 }
+ */
 .li_email_input {
   width: 500px;
   height: 72px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+
   font-family: Pretendard;
   text-align: left;
   font-size: 24px;
-  border: 4px solid #787878;
+  border: 3px solid #787878;
   border-radius: 10px;
 }
 
 .li_pw_input {
   width: 500px;
   height: 72px;
-  position: absolute;
-  left: 0px;
-  top: 96px;
   font-family: Pretendard;
   text-align: left;
   font-size: 24px;
   border-radius: 10px;
-  border: 4px solid #787878;
+  border: 3px solid #787878;
 }
+
 .join_wrap {
   width: 279px;
   height: 25px;
-  position: absolute;
-  left: 110.5px;
-  top: 192px;
 }
+
 .join_wrap span {
   color: #000000;
-  width: 193px;
   height: 24px;
-  position: flex;
-  left: 0px;
-  top: 0px;
   font-family: Pretendard;
-  text-align: left;
   font-size: 20px;
+  margin-right: 10px;
 }
+
 .li_join {
   width: 70px;
   height: 25px;
   position: absolute;
-  left: 209px;
-  top: 0px;
+  margin-right: 10px;
 }
+
 .li_join span {
   color: #7d08d9;
-  width: 100px;
   height: 24px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   font-family: Pretendard;
-  text-align: left;
   font-size: 20px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-}
-.li_codea {
-  color: #7d08d9;
-  width: 144px;
-  height: 64px;
-  position: absolute;
-  left: 274px;
-  top: 64px;
-  font-family: IBM Plex Mono;
-  text-align: left;
-  font-size: 48px;
 }
