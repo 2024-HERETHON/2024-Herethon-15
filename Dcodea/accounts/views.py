@@ -8,69 +8,19 @@ from accounts.models import CustomUser
 # Create your views here.
 
 def signup_view(request):
-    if request.method=='GET':
-        form = SignUpForm()
-        return render(request, 'inputUserInfo.html', {'form': form})
-    
-    elif request.method == "POST":
+    if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
+            # if form.cleaned_data['password1'] == form.cleaned_data['password2']:
             user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
             user.save()
-            # 세션에 사용자 ID 저장
-            request.session['user_id'] = user.id
-            request.session['userName'] = user.username # 사용자 이름 세션에 저장
-            return redirect('signup2')  
-        else:
-            return render(request, 'inputUserInfo.html', {'form': form})
+            login(request, user)
+            return redirect('accounts:login')
+    else:
+        form = SignUpForm()
 
-def inputUserPosition(request):
-    if request.method == 'GET':
-        return render(request, 'inputUserPosition.html')
-    
-    elif request.method == 'POST':
-        user_id = request.session.get('user_id')
-        if user_id is None:
-            return redirect('signup_view')
-        
-        selected_position = request.POST.get('userPosition')
-        user = CustomUser.objects.get(id=user_id)
-        user.userPosition = selected_position
-        user.save()
-
-        return redirect('signup3') 
-
-def inputUserOpen(request):
-    if request.method == 'GET':
-        return render(request, 'inputUserOpen.html')
-    
-    elif request.method == 'POST':
-        user_id = request.session.get('user_id')
-        if user_id is None:
-            return redirect('signup_view')
-
-        selected_open = request.POST.get('userOpen')
-        user = CustomUser.objects.get(id=user_id)
-        user.userOpen = selected_open
-        user.save()
-
-        # 회원가입 완료 페이지로 리다이렉트 
-        return redirect('signcomplete')
-
-def signComplete(request):
-    if request.method == 'GET':
-        return render(request, 'JoinFinish.html')
-    
-    elif request.method == 'POST':
-        user_id = request.session.get('user_id')
-        if user_id is None:
-            return redirect('signup_view')
-
-        user = CustomUser.objects.get(id=user_id)
-        user.save()
-
-        # 회원가입 완료 페이지로 리다이렉트 
-        return redirect('signup_view', {'userName' : user.username})
+    return render(request, 'fe_showJoinContainer.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
