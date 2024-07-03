@@ -1,5 +1,5 @@
 const realUpload = document.querySelector(".real-upload");
-const upload = document.querySelector(".profile_img");
+const upload = document.querySelector(".profile_edit");
 
 function getImageFiles(e) {
   const file = e.currentTarget.files[0];
