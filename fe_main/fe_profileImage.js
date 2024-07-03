@@ -1,5 +1,6 @@
 const realUpload = document.querySelector(".real-upload");
 const upload = document.querySelector(".profile_edit");
+const profileImg = document.querySelector(".profile_img");
 
 function getImageFiles(e) {
   const file = e.currentTarget.files[0];
@@ -7,7 +8,7 @@ function getImageFiles(e) {
 
   const reader = new FileReader();
   reader.onload = (e) => {
-    upload.src = url;
+    profileImg.src = url;
   };
   reader.readAsDataURL(file);
 }
