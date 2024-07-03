@@ -89,6 +89,13 @@ nav {
   line-height: 133%;
 }
 
+.profile_img {
+  width: 152px;
+  height: 152px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
 .profile_tag {
   display: inline-flex;
   height: 10px;
