@@ -1,28 +1,4 @@
-// const todo_rating = (e) => {
-//   e.array.forEach((e) => {
-//     let completed_cnt = 0;
-//     let memo_length = e.memo.length;
-//     e.memo.forEach((memo) => {
-//       if (memo.complete == true) completed_cnt++;
-//     });
-//     const ratio = Math.round((completed_cnt / memo_length) * 100);
-
-//     const callenderBox = document.querySelector(".callender_box");
-
-//     if (ratio === 100) {
-//       callenderBox.classList.add("full");
-//       callenderBox.classList.remove("half", "less");
-//     } else if (ratio >= 50 && ratio < 100) {
-//       callenderBox.classList.add("half");
-//       callenderBox.classList.remove("full", "less");
-//     } else {
-//       callenderBox.classList.add("less");
-//       callenderBox.classList.remove("full", "half");
-//     }
-//   });
-// };
-
-//달력 텍스트 설정(현재 연도+월)
+// 달력 텍스트 설정(현재 연도+월)
 let date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth() + 1;
@@ -35,9 +11,14 @@ const todoInputBtn = document.querySelector(".todo_input");
 const inputField = document.querySelector(".input_field");
 
 todoInputBtn.addEventListener("click", function () {
-  todoInputBtn.classList.add("input_active");
-  inputField.style.display = "block";
-  inputField.focus();
+  if (!todoInputBtn.classList.contains("input_active")) {
+    todoInputBtn.classList.add("input_active");
+    inputField.style.display = "block";
+    inputField.focus();
+  } else {
+    todoInputBtn.classList.remove("input_active");
+    inputField.style.display = "none";
+  }
 });
 
 // today 투두리스트 추가
@@ -63,20 +44,17 @@ function paintToDo() {
     todoText.classList.add("todo_text");
     li.appendChild(todoText);
 
-    let expandBtn = document.createElement("button");
-    let img = document.createElement("img");
-    img.src = "images/expand_btn.svg";
-    img.alt = "더보기";
-    expandBtn.appendChild(img);
-    expandBtn.classList.add("expand_btn");
-    expandBtn.addEventListener("click", function () {
-      li.querySelector(".input_field_e").style.display = "block";
-      li.querySelector(".input_field_e").focus();
-    });
-    li.appendChild(expandBtn);
+    let editBtn = document.createElement("button");
+    editBtn.classList.add("edit_btn");
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("del_btn");
+
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
 
     toDoList.appendChild(li);
-    toDoInput.value = "";
+    toDoInput.value = ""; // 투두 입력 시 input 칸 초기화
 
     // 체크박스 클릭 시 글자색 변경
     checkbox.addEventListener("change", function () {
@@ -85,6 +63,35 @@ function paintToDo() {
       } else {
         todoText.style.opacity = "1";
       }
+      updateCompleteRate();
+    });
+
+    // 편집 버튼 클릭 시 텍스트 수정 기능
+    editBtn.addEventListener("click", function () {
+      let editInput = document.createElement("input");
+      editInput.type = "text";
+      editInput.value = todoText.textContent.trim();
+      editInput.classList.add("edit_todo");
+
+      li.replaceChild(editInput, todoText); // 기존 텍스트 대체
+
+      editInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          if (editInput.value.trim() === "") {
+            alert("수정할 내용을 입력해주세요.");
+          } else {
+            todoText.textContent = ` ${editInput.value.trim()}`;
+            li.replaceChild(todoText, editInput); // 수정된 텍스트 반영
+          }
+        }
+      });
+
+      editInput.focus();
+    });
+
+    // 삭제 버튼 클릭 시 실행될 코드
+    deleteBtn.addEventListener("click", function () {
+      toDoList.removeChild(li);
     });
   }
 }
@@ -95,20 +102,43 @@ toDoInput.addEventListener("keypress", function (e) {
   }
 });
 
-// 목록 추가 버튼
+// today ToDo 달성 비율 계산 및 달성률에 따른 박스 색 설정
+function updateCompleteRate() {
+  const checkboxes = document.querySelectorAll(".checkbox");
+  const total = checkboxes.length;
+  const completed = Array.from(checkboxes).filter(
+    (checkbox) => checkbox.checked
+  ).length;
+  const percentage = total === 0 ? 0 : (completed / total) * 100;
+
+  const ratioBox = document.querySelector(".ratio_box");
+
+  if (percentage === 0) {
+    ratioBox.style.backgroundColor = "";
+  } else if (percentage > 0 && percentage < 30) {
+    ratioBox.style.backgroundColor = "#F1E1FE";
+  } else if (percentage >= 30 && percentage < 50) {
+    ratioBox.style.backgroundColor = "#DBB0FC";
+  } else if (percentage >= 50 && percentage < 75) {
+    ratioBox.style.backgroundColor = "#AD4EF9";
+  } else if (percentage >= 75 && percentage <= 100) {
+    ratioBox.style.backgroundColor = "#7D08D9";
+  }
+}
+
+// todo 목록 추가 버튼
 const addListBtn = document.querySelector(".add_list");
 
 addListBtn.addEventListener("click", function () {
   const todoListContainer = document.querySelector(".todo_list");
 
-  // 목록 추가 버튼 숨기기
   addListBtn.style.display = "none";
 
   // 리스트 이름 입력 창 생성
   let listNameInput = document.createElement("input");
   listNameInput.type = "text";
   listNameInput.classList.add("list_name_input");
-  listNameInput.placeholder = "목록추가";
+  listNameInput.placeholder = "목록 추가";
 
   // 리스트 이름 입력 창을 목록 추가 버튼 위치에 삽입
   todoListContainer.insertBefore(listNameInput, addListBtn);
@@ -126,9 +156,8 @@ addListBtn.addEventListener("click", function () {
         let expandedListBtn = document.createElement("button");
         expandedListBtn.textContent = listName;
         let img_e_add = document.createElement("img");
-        img_e_add.src = "images/add_icon_circle.svg";
+        img_e_add.src = addIconUrl;
         expandedListBtn.appendChild(img_e_add);
-
         expandedListBtn.classList.add("expanded_list");
 
         let inputField_e = document.createElement("input");
@@ -141,8 +170,12 @@ addListBtn.addEventListener("click", function () {
         todoList_e.classList.add("todo_list_e");
 
         expandedListBtn.addEventListener("click", function () {
-          inputField_e.style.display = "block";
-          inputField_e.focus();
+          if (inputField_e.style.display === "block") {
+            inputField_e.style.display = "none";
+          } else {
+            inputField_e.style.display = "block";
+            inputField_e.focus();
+          }
         });
 
         newSection.appendChild(expandedListBtn);
@@ -154,11 +187,11 @@ addListBtn.addEventListener("click", function () {
 
         inputField_e.addEventListener("keypress", function (e) {
           if (e.key === "Enter") {
-            paintToDo_e(newSection);
+            paintToDo_e(todoList_e);
           }
         });
 
-        function paintToDo_e(section) {
+        function paintToDo_e(list) {
           const newTodo_e = inputField_e.value.trim();
 
           if (newTodo_e === "") {
@@ -177,16 +210,53 @@ addListBtn.addEventListener("click", function () {
             todoText_e.classList.add("todo_text_e");
             li_e.appendChild(todoText_e);
 
-            let expandBtn_e = document.createElement("button");
-            let img_e_expand = document.createElement("img");
-            img_e_expand.src = "images/expand_btn.svg";
-            img_e_expand.alt = "더보기";
-            expandBtn_e.appendChild(img_e_expand);
-            expandBtn_e.classList.add("expand_btn_e");
-            li_e.appendChild(expandBtn_e);
+            // 날짜 입력 기능
+            let dateInput = document.createElement("input");
+            dateInput.type = "date";
+            dateInput.classList.add("date_input");
+            dateInput.setAttribute("placeholder", "날짜를 선택하세요");
+            li_e.appendChild(dateInput);
 
-            section.querySelector(".todo_list_e").appendChild(li_e);
+            //편집 버튼 생성
+            let editBtn_e = document.createElement("button");
+            editBtn_e.classList.add("edit_btn_e");
+            li_e.appendChild(editBtn_e);
+
+            //삭제 버튼 생성
+            let deleteBtn_e = document.createElement("button");
+            deleteBtn_e.classList.add("del_btn_e");
+            li_e.appendChild(deleteBtn_e);
+
+            list.appendChild(li_e);
             inputField_e.value = "";
+
+            // 편집 버튼 클릭 시 텍스트 수정 기능
+            editBtn_e.addEventListener("click", function () {
+              let editInput_e = document.createElement("input");
+              editInput_e.type = "text";
+              editInput_e.value = todoText_e.textContent.trim();
+              editInput_e.classList.add("edit_todo_e");
+
+              li_e.replaceChild(editInput_e, todoText_e); // 기존 텍스트 대체
+
+              editInput_e.focus(); // editInput_e에 포커스 설정
+
+              editInput_e.addEventListener("keypress", function (e) {
+                if (e.key === "Enter") {
+                  if (editInput_e.value.trim() === "") {
+                    alert("수정할 내용을 입력해주세요.");
+                  } else {
+                    todoText_e.textContent = editInput_e.value.trim(); // 수정된 텍스트 반영
+                    li_e.replaceChild(todoText_e, editInput_e);
+                  }
+                }
+              });
+            });
+
+            // 삭제 버튼 클릭 시 실행될 코드
+            deleteBtn_e.addEventListener("click", function () {
+              list.removeChild(li_e);
+            });
 
             // 체크박스 클릭 시 글자색 변경
             checkbox_e.addEventListener("change", function () {
@@ -197,10 +267,13 @@ addListBtn.addEventListener("click", function () {
               }
             });
 
-            expandBtn_e.addEventListener("click", function () {
-              inputField_e.style.display = "block";
-              inputField_e.focus();
+            // 날짜 입력 시마다 정렬
+            dateInput.addEventListener("change", function () {
+              sortTodos(list);
             });
+
+            // 처음 추가될 때도 정렬
+            sortTodos(list);
           }
         }
 
@@ -213,3 +286,90 @@ addListBtn.addEventListener("click", function () {
     }
   });
 });
+
+// 투두 날짜순 정렬
+function sortTodos(list) {
+  let items = Array.from(list.children);
+
+  items.sort((a, b) => {
+    let dateA = a.querySelector(".date_input").value;
+    let dateB = b.querySelector(".date_input").value;
+
+    return new Date(dateA) - new Date(dateB);
+  });
+
+  items.forEach((item) => list.appendChild(item));
+}
+
+// menu 간격 조정
+const menus = document.querySelectorAll(".menu");
+
+menus.forEach((menu, index) => {
+  menu.style.left = `${15 + index * 150}px`;
+});
+
+// 모달창 조작
+window.onload = function () {
+  function commentOnClick() {
+    document.querySelector(".modal_wrap").style.display = "block";
+    document.querySelector(".comment_bg").style.display = "block";
+  }
+  function commentOffClick() {
+    document.querySelector(".modal_wrap").style.display = "none";
+    document.querySelector(".comment_bg").style.display = "none";
+  }
+  document
+    .getElementById("comment_btn")
+    .addEventListener("click", commentOnClick);
+  document
+    .querySelector(".comment_close")
+    .addEventListener("click", commentOffClick);
+};
+
+// 모달창 댓글 부분
+// 더미 데이터
+const dummyComments = [
+  {
+    id: 1,
+    username: "익명",
+    content:
+      "구체적 표현은 생각나지 않지만, 제가 공학 전공인데도 '여자니까 잘 모르겠지' 하는 게 기본적으로 깔려 있던 것 같아요. 컴퓨터 수리하시는 분이 오셨을 때도 설명을 하시면서 제가 아무것도 모른다는 듯이 이야기하시더라고요. 그리고 같은 근로생 분들조차도 제가 여자라는 이유로 그렇게 설명해주시는 경우가 제법 많았었고요. 옆에 계시던 임원분이 '얘도 전공자니까 안다'고 말씀하시니 그제야 (앞의 말씀을) 정정하셨어요. 그런데 그 뒤에도 지식을 실험해보는 듯한 질문을 많이 들었어요.",
+  },
+  {
+    id: 2,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+  {
+    id: 3,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+  {
+    id: 4,
+    username: "익명",
+    content: "동료 개발자의 고민을 해결할 수 있는 방법이 있을까요?",
+  },
+];
+
+// 댓글 표시 함수
+function displayComment(comments) {
+  const commentsSection = document.getElementById("comments_section");
+  commentsSection.innerHTML = "";
+  comments.forEach((comment) => {
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "comment";
+    const commentProfile = document.createElement("img");
+    commentProfile.src = addIconUrl2;
+    commentProfile.className = "comment_profile";
+    commentsSection.appendChild(commentProfile);
+    const hrElement = document.createElement("hr");
+    hrElement.classList.add("hr_element");
+    commentDiv.innerHTML = `<strong>${comment.username}</strong><br/>${comment.content}`;
+    commentsSection.appendChild(commentDiv);
+    commentsSection.appendChild(hrElement);
+  });
+}
+
+// 댓글 표시 함수 호출
+displayComment(dummyComments);

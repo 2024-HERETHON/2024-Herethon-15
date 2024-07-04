@@ -1,5 +1,10 @@
 from django import forms
-from .models import Todo
+from .models import Todo, Question, Comment, Profile
+
+class ProfileImageForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_image']
 
 class TodoForm(forms.ModelForm):
     class Meta:
@@ -8,3 +13,15 @@ class TodoForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ['content']
+        exclude = ('user',)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        exclude = ('article', 'user',)
