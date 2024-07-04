@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>codea : 여성 개발자들의 놀이터</title>
+    <link rel="stylesheet" href="fe_nav.css" />
+    <link rel="stylesheet" href="fe_sidebar.css" />
     <link rel="stylesheet" href="fe_dm.css" />
     <link
       rel="stylesheet"
@@ -28,16 +30,36 @@
       </nav>
       <hr />
       <nav class="dm_container">
-        <img class="back_btn" src="images/dm_backBtn.png" />
+        <img
+          class="back_btn"
+          src="images/dm_backBtn.png"
+          onclick="location.href='../fe_explore_user/fe_explore_user.html'"
+        />
         <div class="dm_title"><img src="images/dm_title.png" />DM</div>
         <div style="margin-left: auto"></div>
       </nav>
 
-      <div class="list_container">
-        <div class="list_title">
-          <img src="images/dm_message_title.png" />Message
+      <span class="dm_main">
+        <div class="list_container">
+          <div class="list_title">
+            <img src="images/dm_message_title.png" />Message
+          </div>
+          <ul class="list">
+            <li>
+              <img src="images/basic_profile.png" />
+              <div>
+                <span>
+                  <div class="part">프론트</div>
+                  <div class="name">김민지</div>
+                </span>
+                <div class="content">메시지 내용</div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
+
+        <div class="friend_info"></div>
+      </span>
       <script src="fe_dm.js"></script>
     </div>
   </body>
