@@ -38,16 +38,70 @@
     }
   }
 }
+
 .dm_indivi {
   display: flex;
   flex-direction: column;
 }
+
 .dm_content {
   display: flex;
-
-  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: calc(100% - 48px);
   height: 100%;
+  padding: 24px;
+  gap: 24px;
+
+  div {
+    display: flex;
+    gap: 30px;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    p {
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  img {
+    width: 72px;
+    height: 72px;
+    border-radius: 100%;
+  }
+
+  div.you {
+    color: #131313;
+    justify-content: flex-start;
+    span {
+      color: 55eE5E;
+    }
+    p {
+      background-color: #dedede;
+      border-radius: 0px 20px 20px 20px;
+    }
+  }
+  div.me {
+    color: white;
+    justify-content: flex-end;
+    span {
+      margin-top: 27px;
+      align-items: flex-end;
+    }
+    p {
+      background-color: #ad4ef9;
+      border-radius: 20px 0px 20px 20px;
+    }
+  }
 }
+
 .dm_input {
   margin: 28px;
   padding: 0;

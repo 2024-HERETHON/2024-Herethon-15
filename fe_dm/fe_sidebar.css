@@ -85,6 +85,11 @@
         }
       }
       .content {
+        width: 190px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         color: #919191;
         font-size: 12px;
         font-weight: 700;
