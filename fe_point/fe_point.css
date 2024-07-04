@@ -1,0 +1,93 @@
+.container {
+  width: 1777px;
+  height: 1080px;
+  margin: 0 auto;
+}
+
+.nav_container {
+  width: 1777px;
+  height: 70px;
+  background-color: white;
+  position: fixed;
+  margin-top: -10px;
+  z-index: 1002;
+}
+
+.logo {
+  color: #7d08d9;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 133%;
+  margin-right: auto;
+  margin-left: 40px;
+  letter-spacing: 0.1em;
+  position: fixed;
+  margin-top: 5px;
+  margin-left: 20px;
+  z-index: 1003;
+}
+
+.menu {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #454545;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1003;
+  margin-top: 1%;
+}
+
+.menu#home {
+  margin-left: 55%;
+}
+.menu#search {
+  margin-left: 65%;
+}
+.menu#point {
+  margin-left: 75%;
+}
+.menu#logout {
+  margin-left: 85%;
+}
+
+.menu#home {
+  color: #7d08d9;
+}
+
+.menu:hover {
+  background-color: #f1e1fe;
+  border-radius: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+nav {
+  display: flex;
+}
+
+.nav_hr {
+  width: 1777px;
+  height: 2px;
+  background-color: #c4c4c4;
+  border: 0;
+  position: fixed;
+  margin-top: 60px;
+}
+
+.point_container {
+  display: flex;
+  padding: 120px 500px;
+}
+
+.point_icon {
+  margin-top: 30px;
+}

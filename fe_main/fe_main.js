@@ -10,7 +10,9 @@ currentDateElement.textContent = `${year}.${month}`;
 const todoInputBtn = document.querySelector(".todo_input");
 const inputField = document.querySelector(".input_field");
 
-todoInputBtn.addEventListener("click", function () {
+todoInputBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
   if (!todoInputBtn.classList.contains("input_active")) {
     todoInputBtn.classList.add("input_active");
     inputField.style.display = "block";
@@ -98,6 +100,7 @@ function paintToDo() {
 
 toDoInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
+    e.preventDefault();
     paintToDo();
   }
 });
