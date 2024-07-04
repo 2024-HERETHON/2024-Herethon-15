@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    {% load static %}
+    <!-- 여기부터 css와 js 파일 넣으시면 됩니다. -->
+</head>
+<body>
+    <div class="container">
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">찾기</button>
+        </form>
+
+        {% if userPosition %}
+            <h2>{{ userPosition }}에 대한 결과</h2>
+        {% endif %}
+
+        {% if user_todos %}
+        <ul>
+            {% for user, todos in user_todos.items %}
+            <li>
+                <h3>{{ user.username }}</h3>
+                <p>Position: {{ user.userPosition }}</p>
+                <ul>
+                    {% for todo in todos %}
+                    <li>
+                        <p>Description: {{ todo.description }}</p>
+                        <p>Completed: {{ todo.completed }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>결과가 없습니다.</p>
+        {% endif %}
+
+        {% if questions %}
+        <h2>고민 리스트</h2>
+        <ul>
+            {% for question in questions %}
+            <li>
+                <a href="{% url 'search:detail' question.user.userId %}">{{ question.content }}</a>
+                <p>작성자: {{ question.user.username }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>고민이 없습니다.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
