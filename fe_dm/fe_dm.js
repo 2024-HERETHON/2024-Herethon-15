@@ -2,7 +2,6 @@ const partTag = document.getElementsByClassName("part");
 
 for (let i = 0; i < partTag.length; i++) {
   const part = partTag[i].innerText;
-  console.log(part);
   let color = "#dedede";
   if (part == "프론트") {
     color = "#E1FEF4";
