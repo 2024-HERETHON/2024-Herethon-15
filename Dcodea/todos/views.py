@@ -23,6 +23,8 @@ def main(request):
         elif 'question_form' in request.POST:
             question_form = QuestionForm(request.POST)
             if question_form.is_valid():
+                question_form =QuestionForm()
+                question_form.questions=request.POST['question']
                 question = question_form.save(commit=False)
                 question.user = request.user
                 question.save()

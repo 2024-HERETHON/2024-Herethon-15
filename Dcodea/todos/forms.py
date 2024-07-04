@@ -17,7 +17,7 @@ class TodoForm(forms.ModelForm):
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['content']
+        fields = ['question']
         exclude = ('user',)
 
 class CommentForm(forms.ModelForm):

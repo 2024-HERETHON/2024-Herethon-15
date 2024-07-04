@@ -30,10 +30,10 @@ class Todo(models.Model):
     
 class Question(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    content = models.CharField(max_length=200)
+    question = models.TextField(null=True, blank=True)
     
     def __str__(self):
-        return self.content
+        return self.question or ''
     
 class Comment(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
