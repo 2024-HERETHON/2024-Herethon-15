@@ -3,6 +3,6 @@ from .views import *
 
 app_name= 'search'
 urlpatterns =[
-    path('detail/<int:id>/',detail_view,name="detail"),
-    
+    path('detail/<str:userId>/',detail_view,name="detail"),
+    path('', SearchFormView.as_view(), name="search"),
 ]
