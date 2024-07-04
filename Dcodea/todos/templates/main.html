@@ -82,7 +82,7 @@
         <form method="POST">
           {% csrf_token %}
           <input type="hidden" name="question_form" value="question_form">
-          {{ question_form.as_p }}
+          {{ form.as_p }}
           <button type="submit" class="send_btn">추가</button>
         </form>
         <ul>
@@ -118,7 +118,7 @@
         <form method="POST">
           {% csrf_token %}
           <input type="hidden" name="todo_form" value="todo_form">
-          {{ form.as_p }}
+          {{ question_form.as_p }}
           <button type="submit">추가</button>
         </form>
         <ul id="todo_list" style="list-style-type: none">

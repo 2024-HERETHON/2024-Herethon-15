@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/login_fail.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{% static 'css/login_fail.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
 </head>
+
 <body>
     <div class="container">
         <form class="login_wrap" method="post" action="{% url 'accounts:login' %}">
             {% csrf_token %}
-            <div class="idpw">
-                <div class="li_email">
-                    <input class="li_email_input" id="li_email_input" type="text" name="username" placeholder="아이디" required>
-                </div>
-                <div class="li_pw">
-                    <input class="li_pw_input" id="li_pw_input" type="password" name="password" placeholder="비밀번호" required>
-                </div>
-            </div>
-            <div><a id="error_text" class="error_text">아이디 또는 비밀번호를 잘못 입력했습니다.</a></div>
             <button id="li_login_btn" class="li_login_btn" type="submit">
                 <div class="login_box">
                     <span>로그인</span>
                 </div>
             </button>
 
-            <div class="join_wrap">
-                <span>아직 회원이 아니신가요?</span>
-                <a id="li_join" class="li_join" href="{% url 'accounts:signup' %}">
-                    <span>회원가입</span>
-                </a>
+            <div class="li_login_wrap">
+                <div class="idpw">
+                    <div class="li_email">
+                        <input class="li_email_input" id="li_email_input" type="text" name="username"placeholder="아이디" />
+                    </div>
+                    <div class="li_pw">
+                        <input class="li_pw_input" id="li_pw_input" type="password" name="password" placeholder="비밀번호" />
+                    </div>
+                </div>
+                <div>
+                    <a id="error_text" class="error_text">아이디 또는 비밀번호를 잘못 입력했습니다.</a>
+                </div>
+                <div class="join_wrap">
+                    <span>아직 회원이 아니신가요?</span>
+                    <a id="li_join" class="li_join" href="{% url 'accounts:signup' %}">
+                        <span>회원가입</span>
+                    </a>
+                </div>
             </div>
             <span class="li_codea">codea</span>
         </form>
     </div>
-<script src="{% static 'js/login_fail.js' %}"></script>
+    <script src="{% static 'js/login_fail.js' %}"></script>
 </body>
+
 </html>
-            
