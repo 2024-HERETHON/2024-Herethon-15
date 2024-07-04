@@ -6,7 +6,7 @@
 .friend_info {
   width: 1457px;
   height: 100px;
-  border-bottom: 1px solid rgb(219, 219, 219);
+  box-shadow: 0px 5px 20px 0px #ececec;
   padding-inline-start: 22px;
   display: flex;
   align-items: center;
