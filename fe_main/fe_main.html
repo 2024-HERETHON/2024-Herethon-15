@@ -25,6 +25,7 @@
         <div class="logo">codea</div>
         <button class="menu" id="home">홈</button>
         <button class="menu" id="search">탐색</button>
+        <button class="menu" id="point">포인트</button>
         <button class="menu" id="logout">로그아웃</button>
       </nav>
 
@@ -33,12 +34,14 @@
       <section>
         <div class="profile_container">
           <img src="images/profile.svg" class="profile_img" />
-          <input
-            type="file"
-            class="real-upload"
-            accept="image/*"
-            style="display: none"
-          />
+          <form class="profile_upload">
+            <input
+              type="file"
+              class="real-upload"
+              accept="image/*"
+              style="display: none"
+            />
+          </form>
           <img src="images/profile_edit.svg" class="profile_edit" />
 
           <div class="profile_info">
@@ -106,12 +109,14 @@
           <img src="images/add_icon_circle.svg" />
         </button>
         <br />
-        <input
-          type="text"
-          class="input_field"
-          id="input_field"
-          placeholder="할 일 입력"
-        />
+        <form class="todo_input_btn">
+          <input
+            type="text"
+            class="input_field"
+            id="input_field"
+            placeholder="할 일 입력"
+          />
+        </form>
         <ul id="todo_list" style="list-style-type: none"></ul>
         <br /><br />
         <button class="add_list">
