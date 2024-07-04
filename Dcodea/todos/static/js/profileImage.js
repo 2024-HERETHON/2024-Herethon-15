@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function getImageFiles(e) {
       const file = e.currentTarget.files[0];
-      const url = URL.createObjectURL(file);
+      //const url = URL.createObjectURL(file);
 
       const reader = new FileReader();
       reader.onload = (e) => {

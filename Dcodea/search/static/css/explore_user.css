@@ -4,6 +4,15 @@
   margin: 0 auto;
 }
 
+.nav_container {
+  width: 1777px;
+  height: 70px;
+  background-color: white;
+  position: fixed;
+  margin-top: -10px;
+  z-index: 998;
+}
+
 .logo {
   color: #7d08d9;
   font-family: "IBM Plex Sans KR", sans-serif;
@@ -17,6 +26,7 @@
   position: fixed;
   margin-top: 5px;
   margin-left: 20px;
+  z-index: 999;
 }
 
 .menu {
@@ -32,7 +42,8 @@
   border: none;
   cursor: pointer;
   position: fixed;
-  margin: 15px 0px 10px 1460px;
+  margin: 1% 0 0 68%;
+  z-index: 999;
 }
 
 .menu#search {

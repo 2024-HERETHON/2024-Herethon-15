@@ -8,4 +8,4 @@ from todos.models import Todo
 @login_required
 def detail_view(request, id):
     post = get_object_or_404(Todo, id = id)
-    return render(request, 'fe_explore_user.html', {'post':post})
+    return render(request, 'explore_user.html', {'post':post})

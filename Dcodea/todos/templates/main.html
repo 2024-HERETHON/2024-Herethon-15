@@ -24,11 +24,9 @@
       <nav>
         <div class="nav_container"></div>
         <div class="logo">codea</div>
-        <button class="menu" id="home">홈</button>
+        <a href="{% url 'todo' %}" class="menu" id="home">홈</a>
         <button class="menu" id="search">탐색</button>
-        <a href="{% url 'accounts:logout' %}">
-          <button class="menu" id="logout">로그아웃</button>
-        </a>
+        <a href="{% url 'accounts:logout' %}" class="menu" id="logout">로그아웃</a>
       </nav>
 
       <hr class="nav_hr" />

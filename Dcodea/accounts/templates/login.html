@@ -13,13 +13,11 @@
     <div class="container">
         <form class="login_wrap" method="post" action="{% url 'accounts:login' %}">
             {% csrf_token %}
-            <div class="idpw">
                 <div class="li_email">
                     <input class="li_email_input" id="li_email_input" type="text" name="username" placeholder="아이디" required>
                 </div>
                 <div class="li_pw">
                     <input class="li_pw_input" id="li_pw_input" type="password" name="password" placeholder="비밀번호" required>
-                </div>
             </div>
             <button id="li_login_btn" class="li_login_btn" type="submit">
                 <div class="login_box">

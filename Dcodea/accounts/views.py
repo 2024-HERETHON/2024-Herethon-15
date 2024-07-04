@@ -25,7 +25,7 @@ def signup_view(request):
 
 def joinfinish_view(request):
     username = request.session.get('username')
-    return render(request, 'fe_JoinFinish.html', {'username': username})
+    return render(request, 'JoinFinish.html', {'username': username})
 
 def login_view(request):
     if request.method == 'POST':

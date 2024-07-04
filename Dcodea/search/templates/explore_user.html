@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>codea : 여성 개발자들의 놀이터</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/fe_explore_user.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/explore_user.css' %}" />
     <link
       rel="stylesheet"
       as="style"
@@ -22,6 +22,7 @@
   <body>
     <div class="container">
       <nav>
+        <div class="nav_container"></div>
         <div class="logo">codea</div>
         <button class="menu" id="home">홈</button>
         <button class="menu" id="search">탐색</button>
@@ -32,14 +33,14 @@
 
       <section>
         <div class="profile_container">
-          <img src="{% static 'imag/profile.svg' %}" class="profile_img" />
+          <img src="{% static 'img/profile.svg' %}" class="profile_img" />
           <div class="profile_info">
-            <div class="profile_name">{{post.username}}</div>
+            <div class="profile_name">{{user.username}}</div>
             <br />
-            <div class="profile_tag">{{post.userPosition}}</div>
+            <div class="profile_tag">{{user.userPosition}}</div>
           </div>
           <button class="cheer_btn">
-            응원하기 <img src="{% static 'imag/cheer_fist.svg' %}">
+            응원하기 <img src="{% static 'img/cheer_fist.svg' %}">
           </button>
         </div>
         <div class="intro_box">introduction...
@@ -51,7 +52,7 @@
 
       <section class="todo_calendar">
         <div class="calendar_text">
-          <img src="{% static 'imag/calendar_icon.svg' %}" />
+          <img src="{% static 'img/calendar_icon.svg' %}" />
           <span id="current_date"></span>
         </div>
         <div class="calendar_container">
@@ -70,7 +71,7 @@
         <ul id="todo_list" style="list-style-type: none"></ul>
         <br /><br />
       </section>
-      <script src="{% static 'js/fe_explore_user.js' %}"></script>
+      <script src="{% static 'explore_user.js' %}"></script>
     </div>
   </body>
 </html>
