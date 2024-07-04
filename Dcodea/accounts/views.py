@@ -39,7 +39,7 @@ def login_view(request):
                 return redirect('todo')  # 로그인 성공 시 리다이렉트할 URL
             else:
                 return render(request, 'login_fail.html', {'form': form})
-        return render(request, 'login.html', {'form': form})
+        return render(request, 'login_fail.html', {'form': form})
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
