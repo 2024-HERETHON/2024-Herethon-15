@@ -1,488 +1,495 @@
 /* iconRight의 top 수정 필요 */
 /* nav 위치 수정 필요 */
 
-body {
-  background-color: #ffffff;
-  width: 1777px;
-  height: 1080px;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+body{
+    background-color: #FFFFFF;
+    width: 1777px;
+    height: 1080px;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
-.header1 {
-  width: 1777px;
-  height: 76px;
-  top: 0;
-  left: 0;
-  position: relative;
+.header1{
+    width: 1777px;
+    height: 76px;
+    top: 0;
+    left: 0;
+    position: relative;
 }
-.codea {
-  color: #7d08d9;
-  width: 108px;
-  height: 48px;
-  position: absolute;
-  left: 48px;
-  top: 12px;
-  font-family: IBM Plex Mono;
-  text-align: left;
-  font-size: 36px;
-  display: flex;
-  font-weight: 600;
+.codea{
+    color:#7D08D9;
+	width:108px;
+	height:48px;
+    position: absolute;
+	left:48px;
+	top:12px;
+	font-family:IBM Plex Mono;
+	text-align:left;
+	font-size:36px;
+    display: flex;
+    font-weight: 600;
 }
-.codea img {
-  width: 48px;
-  height: 48px;
-  position: relative;
-  margin-right: 5px;
+.codea img{
+    width: 48px;
+    height: 48px;
+    position: relative;
+    margin-right: 5px;
 }
-.headerNav ul {
-  display: inline-flex;
-  text-decoration: none;
+.headerNav ul{
+    display: inline-flex;
+    text-decoration: none;
+    
 }
-.headerNav li {
-  list-style: none;
-  display: inline-flex;
-  text-decoration: none;
+.headerNav li{
+    list-style: none;
+    display: inline-flex;
+    text-decoration: none;
 }
-.home {
-  position: absolute;
-  left: 1074px;
-  top: 22px;
-  font-family: Pretendard;
-  font-size: 24px;
-  color: #919191;
-  font-weight: 600;
+.home{
+    position: absolute;
+    left: 1074px;
+    top: 22px;
+    font-family: Pretendard;
+    font-size: 24px;
+    color: #919191;
+    font-weight: 600;
 }
-.search {
-  position: absolute;
-  left: 1215px;
-  top: 22px;
-  color: #7d08d9;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 600;
+.search{
+    position: absolute;
+    left: 1215px;
+    top: 22px;
+    color: #7D08D9;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 600;
 }
-.nav_point {
-  position: absolute;
-  left: 1377px;
-  top: 22px;
-  font-family: Pretendard;
-  font-size: 24px;
-  color: #919191;
-  font-weight: 600;
+.nav_point{
+    position: absolute;
+    left: 1377px;
+    top: 22px;
+    font-family: Pretendard;
+    font-size: 24px;
+    color: #919191;
+    font-weight: 600;
 }
-.logout {
-  position: absolute;
-  left: 1600px;
-  top: 22px;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 600;
-  color: #454545;
+.logout{
+    position: absolute;
+    left: 1600px;
+    top: 22px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 600;
+    color: #454545;
 }
-.border1 {
-  position: absolute;
-  background-color: #c4c4c4;
-  width: 100%;
-  height: 2px;
-  left: 0;
-  top: 72px;
+.border1{
+    position: absolute;
+    background-color: #c4c4c4;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 72px;
 }
-.border2 {
-  position: absolute;
-  background-color: #c4c4c4;
-  width: 100%;
-  height: 2px;
-  left: 0;
-  top: 174px;
+.border2{
+    position: absolute;
+    background-color: #c4c4c4;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 174px;
 }
-.header2 {
-  position: relative;
-  width: 1777px;
-  height: 100px;
-  top: 0;
+.header2{
+    position: relative;
+    width: 1777px;
+    height: 100px;
+    top: 0;
 }
-.DM_btn {
-  position: relative;
-  width: 88px;
-  height: 48px;
-  top: 27px;
-  left: 1633px;
-  display: flex;
-  align-items: center;
+.DM_btn{
+    position: relative;
+    width: 88px;
+    height: 48px;
+    top: 27px;
+    left: 1633px;
+    display: flex;
+    align-items: center;
 }
 .DM_btn_a {
-  display: inline-block;
-  width: auto;
-  height: auto;
+    display: inline-block;
+    width: auto;
+    height: auto;
 }
-.DM_btn_img1 {
-  width: 48px;
-  height: 48px;
-  top: 0px;
-  left: 0px;
-  position: relative;
+.DM_btn_img1{
+    width: 48px;
+    height: 48px;
+    top: 0px;
+    left: 0px;
+    position: relative;
 }
 
-.dmRigntIcon {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  left: 8px;
-  top: 0px;
+.dmRigntIcon{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    left: 8px;
+    top: 0px;
 }
-.wrap {
-  position: flex;
-  width: 1777px;
-  height: 100%;
+.wrap{
+    position:flex;
+    width: 1777px;
+    height: 100%;
 }
 .side {
-  position: absolute;
-  width: 320px;
-  height: 906px;
-  background-color: #f7f7f7;
-  top: 176px;
+    position: absolute;
+    width: 320px;
+    height: 906px;
+    background-color: #F7F7F7;
+    top: 176px;
 }
 .addfriend {
-  position: relative;
-  width: 180px;
-  height: 120px;
-  left: 70px;
-  top: 318px;
-  border: none;
+    position: relative;
+    width: 180px;
+    height: 120px;
+    left: 70px;
+    top: 318px;
+    border: none;
 }
 .friendBtn {
-  position: absolute;
-  left: 24px;
-  top: 12px;
-  width: 272px;
-  height: 48px;
-  background-color: #ff85b1;
-  border-radius: 24px;
+    position: absolute;
+    left: 24px;
+    top: 12px;
+    width: 272px;
+    height: 48px;
+    background-color: #FF85B1;
+    border-radius: 24px;
 }
 .percheck {
-  position: absolute;
-  left: 75.5px;
-  top: 12px;
-  width: 24px;
-  height: 24px;
+    position: absolute;
+    left: 75.5px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
 }
 .friendBtn span {
-  position: absolute;
-  top: 8px;
-  left: 107px;
-  font-family: Pretendard;
-  font-size: 24px;
-  color: #ffffff;
+    position: absolute;
+    top: 8px;
+    left: 107px;
+    font-family: Pretendard;
+    font-size: 24px;
+    color: #FFFFFF;
 }
 .perImg {
-  width: 48px;
-  height: 48px;
-  top: 16px;
-  left: 16px;
-  position: absolute;
-  margin: 0;
+    width: 48px;
+    height: 48px;
+    top: 16px;
+    left: 16px;
+    position: absolute;
+    margin: 0;
 }
 .category {
-  width: 51px;
-  height: 24px;
-  border-radius: 20px;
-  left: 76px;
-  top: 4px;
-  font-family: Pretendard;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 500;
-  position: absolute;
+    width: 51px;
+    height: 24px;
+    border-radius: 20px;
+    left: 76px;
+    top: 4px;
+    font-family: Pretendard;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
 }
 .c_back {
-  background-color: #fee5e1;
+    background-color: #FEE5E1;
 }
 .c_front {
-  background-color: #e1fef4;
+    background-color: #E1FEF4;
 }
 .c_full {
-  background-color: #ffefb8;
+    background-color: #FFEFB8;
 }
 .c_unselect {
-  background-color: #ffebf2;
+    background-color: #DEDEDE;
 }
-.category span {
-  font-family: Pretendard;
-  font-size: 12px;
-  display: flex;
+.category span{
+    font-family: Pretendard;
+    font-size: 12px;
+    display: flex;
 }
 .pername {
-  left: 143px;
-  top: 16px;
-  position: relative;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 600;
+    left: 143px;
+    top: 16px;
+    position: relative;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
 }
 .pername span {
-  font-family: Pretendard;
-  font-size: 16px;
+    font-family: Pretendard;
+    font-size: 16px;
 }
 .degree {
-  left: 76px;
-  top: 56px;
-  background-color: #dedede;
-  width: 160px;
-  height: 8px;
-  border-radius: 8px;
-  position: absolute;
+    left: 76px;
+    top: 56px;
+    width: 160px;
+    height: 8px;
+    border-radius: 8px;
+    position: absolute;
+    background-color: #DEDEDE;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-image: linear-gradient(to right, #AD4EF9, #AD4EF9);
+    transition: width 0.3s ease;
 }
 .iconRight {
-  width: 24px;
-  height: 24px;
-  left: 244px;
-  top: -10px;
-  position: relative;
+    width: 24px;
+    height: 24px;
+    left: 244px;
+    top: -10px;
+    position: relative;
+    cursor: pointer;
 }
 .friend_news_card {
-  position: relative;
-  left: 24px;
-  top: 76px;
-  width: 272px;
-  height: 80px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 10px #c4c4c4;
-  margin-bottom: 16px;
+    position: relative;
+    left: 24px;
+    top: 76px;
+    width: 272px;
+    height: 80px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #C4C4C4;
+    margin-bottom: 16px;
 }
 .selectCategory {
-  display: flex;
-  left: 643px;
-  top: 198px;
-  position: absolute;
+    display: flex;
+    left: 643px;
+    top: 198px;
+    position: absolute;
 }
-
 .selectCategory div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Pretendard;
-  font-size: 24px;
-  line-height: 64px;
-  border-radius: 36px;
-  height: 64px;
-  border: 2px solid #ababab;
-  background-color: #f7f7f7;
-  margin-right: 24px;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Pretendard;
+    font-size: 24px;
+    line-height: 64px;
+    border-radius: 36px;
+    height: 64px;
+    border: 2px solid #ABABAB;
+    background-color: #F7F7F7;
+    margin-right: 24px;
+    cursor: pointer;
 }
-
 .sc_all {
-  width: 122px;
+    width: 122px;
 }
-
 .sc_front {
-  width: 184px;
+    width: 184px;
 }
-
 .sc_back {
-  width: 143px;
+    width: 143px;
 }
-
 .sc_full {
-  width: 143px;
+    width: 143px;
 }
-
 .sc_unsel {
-  width: 122px;
-  margin-right: 0;
+    width: 122px;
+    margin-right: 0;
 }
-.anotherProblem {
-  left: 384px;
-  top: 298px;
-  font-family: Pretendard;
-  font-size: 28px;
-  position: absolute;
+.filter-btn a{
+    text-decoration: none;
 }
-.problemCard {
-  width: 432px;
-  height: 120px;
-  border-radius: 10px;
-  background-color: #f7f7f7;
-  position: relative;
-  margin-left: 32px;
-  gap: 32px;
-  padding: 24px;
-  box-sizing: border-box;
+.anotherProblem{
+    left: 384px;
+    top: 298px;
+    font-family: Pretendard;
+    font-size: 28px;
+    position: absolute;
 }
-.problems {
-  display: flex;
-  left: 374px;
-  top: 364px;
-  position: absolute;
+.problemCard{
+    width: 432px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    position: relative;
+    margin-left:32px ;
+    gap: 32px;
+    padding: 24px;
+    box-sizing: border-box;
 }
-.problemText {
-  width: 384px;
-  height: 72px;
-  font-family: Pretendard;
-  font-size: 20px;
-  font-weight: 400;
-  color: #454545;
-  position: relative;
-  box-sizing: border-box;
-  margin: 0;
+.problems{
+    display: flex;
+    left: 374px;
+    top: 364px;
+    position: absolute;
 }
-.anotherToDo {
-  height: 37px;
-  left: 384px;
-  top: 398px;
-  position: relative;
+.problemText{
+    width: 384px;
+    height: 72px;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 400;
+    color: #454545;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
 }
-.anotherToDo span {
-  font-family: Pretendard;
-  font-size: 28px;
+.anotherToDo{
+    height: 37px;
+    left: 384px;
+    top: 398px;
+    position: relative;
+}
+.anotherToDo span{
+    font-family: Pretendard;
+    font-size: 28px;
 }
 
 .friendToDo {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 64px;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 520px;
-  top: 675px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 64px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 520px;
+    top: 675px;
 }
 
 .friend {
-  width: 480px;
-  height: 440px;
-  background-color: #f7f7f7;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0px 0px 10px #c4c4c4;
-  margin-right: 64px;
-  left: 0px;
-  top: 0px;
-  margin: 0 auto;
+    width: 480px;
+    height: 440px;
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0px 0px 10px #C4C4C4;
+    margin-right: 64px; 
+    left: 0px;
+    top: 0px;
+    margin: 0 auto;
 }
 
 .friend_profile {
-  background-color: #ffffff;
-  left: 0;
-  top: 0;
-  width: 480px;
-  height: 144px;
-  border-radius: 10px 10px 0 0;
-  align-items: center;
-  justify-content: space-between;
+    background-color: #FFFFFF;
+    left: 0;
+    top: 0;
+    width: 480px;
+    height: 144px;
+    border-radius: 10px 10px 0 0;
+    align-items: center;
+    justify-content: space-between;
+    
 }
-.friendImg {
-  width: 0;
-  height: 0;
-  left: 24px;
-  top: 24px;
+.friendImg{
+    width: 0;
+    height: 0;
+    left: 24px;
+    top: 24px;
 }
-.friendImg img {
-  width: 96px;
-  height: 96px;
-  top: 24px;
-  left: 24px;
-  position: absolute;
+.friendImg img{
+    width: 96px;
+    height: 96px;
+    top: 24px;
+    left: 24px;
+    position: absolute;
 }
 
 .friendName {
-  position: absolute;
-  left: 136px;
-  top: 35px;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
+    position: absolute; 
+    left: 136px;
+    top: 35px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .friend_category {
-  position: relative;
-  left: 136px;
-  top: 44px;
-  text-align: center;
-  border-radius: 20px;
-  font-size: 16px;
-  font-family: Pretendard;
-  font-weight: 600;
-  margin: 0;
+    position: relative;
+    left: 136px;
+    top: 44px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: Pretendard;
+    font-weight: 600;
+    margin: 0;
 }
 
 .fc_front {
-  width: 74px;
-  height: 29px;
-  line-height: 29px;
-  background-color: #e1fef4;
+    width: 74px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #E1FEF4;
 }
 
 .fc_back {
-  width: 74px;
-  height: 29px;
-  line-height: 29px;
-  background-color: #fee5e1;
+    width: 74px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #FEE5E1;
 }
 
 .fc_full {
-  width: 74px;
-  height: 29px;
-  line-height: 29px;
-  background-color: #ffefb8;
+    width: 74px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #FFEFB8;
 }
 
 .fc_undefined {
-  width: 74px;
-  height: 29px;
-  line-height: 29px;
-  background-color: #ffebf2;
+    width: 74px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #DEDEDE;
 }
 
 .friend_iconRight {
-  width: 32px;
-  height: 32px;
-  position: relative;
-  top: 56px;
-  left: 440px;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 56px;
+    left: 440px;
 }
-.complete_friend_todo {
-  width: 432px;
-  height: 256px;
-  top: 16px;
-  left: 24px;
-  position: relative;
+.complete_friend_todo{
+    width: 432px; 
+    height: 256px;
+    top: 16px;
+    left: 24px;
+    position: relative;
 }
-.completeToDo_list {
-  display: inline;
-  top: 0px;
-  left: 0;
-  position: relative;
+.completeToDo_list{
+    display: inline;
+    top: 0px;
+    left: 0;
+    position: relative;
 }
-.completeToDo {
-  display: inline;
-  width: 432px;
-  height: 64px;
-  padding: 0;
+.completeToDo{
+    display: inline;
+    width: 432px;
+    height: 64px;
+    padding: 0;
 }
-.complete_work {
-  font-family: Pretendard;
-  font-size: 20px;
-  text-align: left;
-  left: 74px;
-  top: 7px;
-  position: relative;
+.complete_work{
+    font-family: Pretendard;
+    font-size: 20px;
+    text-align: left;
+    left: 74px;
+    top: 7px;
+    position: relative;
 }
-.checked {
-  width: 0;
-  height: 0;
+.checked{
+    width: 0;
+    height: 0;
+
 }
-.checked img {
-  width: 24px;
-  height: 24px;
-  top: 20px;
-  left: 32px;
-  position: relative;
-  margin: 8px;
+.checked img{
+    width: 24px;
+    height: 24px;
+    top: 20px;
+    left: 32px;
+    position: relative;
+    margin: 8px;
 }

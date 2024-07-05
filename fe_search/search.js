@@ -1,145 +1,102 @@
 // Data arrays
-const friends_news = [
-  { category: "프론트", name: "변하늘", img: "profile.png", progress: "" },
-  { category: "미정", name: "유지민", img: "profile.png", progress: "" },
-  { category: "풀스택", name: "김민지", img: "profile.png", progress: "" },
-  { category: "프론트", name: "김민지", img: "profile.png", progress: "" },
-  { category: "백엔드", name: "윤지수", img: "profile.png", progress: "" },
-];
+
 
 const problems = [
-  { problem: " 싶은데 어떻게 준비해야이직하고 할까요?" },
-  { problem: "회사 동기들 중에 여자가 저 혼자예요. 너무 외로워요" },
-  { problem: "회식이 너무 잦은 회사, 계속 다녀야 할까요?" },
+  { problem: '제 능력을 못믿는 분들이 있는 경우에는 어떻게 해야할까요?' },
+  { problem: '다른 분들에게 조언을 얻고싶어요.' },
+  { problem: '제 능력을 못믿는 분들이 있는 경우에는 어떻게 해야할까요?' }
 ];
 
 const todolists = [
-  {
-    img: "profile.png",
-    category: "프론트",
-    name: "김민지",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "프론트",
-    name: "여예원",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "프론트",
-    name: "이지연",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "프론트",
-    name: "김수로",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "백엔드",
-    name: "석탈해",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "백엔드",
-    name: "김알지",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "풀스택",
-    name: "김알지",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "미정",
-    name: "김알지",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
-  {
-    img: "profile.png",
-    category: "백엔드",
-    name: "김춘추",
-    completeWork1: "완료된 일1 입력",
-    completeWork2: "완료된 일2 입력",
-    completeWork3: "완료된 일3 입력",
-    completeWork4: "완료된 일4 입력",
-  },
+  { img: "profile.png", category: '프론트', name: '김민지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '프론트', name: '여예원', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '프론트', name: '이지연', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '프론트', name: '김수로', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '백엔드', name: '석탈해', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '백엔드', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '풀스택', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '미정', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+  { img: "profile.png", category: '백엔드', name: '김춘추', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
 ];
 
 // Get DOM elements
-const friendNews = document.getElementById("achiveDegree");
-const problemCards = document.getElementById("problems");
-const todoBlock = document.getElementById("friendToDo");
-const filterButtons = document.querySelectorAll(".filter-btn");
+const friendNews = document.getElementById('achiveDegree');
+const problemCards = document.getElementById('problems');
+const todoBlock = document.getElementById('friendToDo');
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+
+const progress_bar = document.getElementById('degree');
+
+function updateCompleteRate() {
+  const checkboxes = document.querySelectorAll(".checkbox");
+  const total = checkboxes.length;
+  const completed = Array.from(checkboxes).filter(
+    (checkbox) => checkbox.checked
+  ).length;
+  const percentage = total === 0 ? 0 : (completed / total) * 100;
+
+  const progressBar = document.querySelector(".progress-bar");
+
+  progressBar.style.width = percentage + "%";
+
+  let progress = percentage;
+
+  friends_news.forEach(friend => {
+    friend.progress = progress.toFixed(2); // progress 값을 소수점 두 자리로 지정
+  });
+
+  console.log(friends_news); // 업데이트된 friends_news 출력
+}
+
+const friends_news = [
+  { category: '프론트', name: '변하늘', img: "profile.png", progress: "60" },
+  { category: '미정', name: '유지민', img: "profile.png", progress: "40" },
+  { category: '풀스택', name: '김민지', img: "profile.png", progress: "30" },
+  { category: '프론트', name: '김민지', img: "profile.png", progress: "85" },
+  { category: '백엔드', name: '윤지수', img: "profile.png", progress: "90" }
+];
 
 // Function to create friend news cards
 function createCard(category, pername, img, progress) {
-  const friend_news_card = document.createElement("div");
-  friend_news_card.classList.add("friend_news_card");
+  const friend_news_card = document.createElement('div');
+  friend_news_card.classList.add('friend_news_card');
 
-  const friendImg = document.createElement("img");
-  friendImg.classList.add("perImg");
+  const friendImg = document.createElement('img');
+  friendImg.classList.add('perImg');
   friendImg.src = img;
 
-  const cardName = document.createElement("p");
-  cardName.classList.add("pername");
+  const cardName = document.createElement('p');
+  cardName.classList.add('pername');
   cardName.textContent = pername;
 
-  const cardCate = document.createElement("p");
-  cardCate.classList.add("category");
+  const cardCate = document.createElement('p');
+  cardCate.classList.add('category');
   cardCate.textContent = category;
-  if (category === "프론트") {
-    cardCate.classList.add("c_front");
-  } else if (category === "풀스택") {
-    cardCate.classList.add("c_full");
-  } else if (category === "백엔드") {
-    cardCate.classList.add("c_back");
-  } else if (category === "미정") {
-    cardCate.classList.add("c_unselect");
+  if (category === '프론트') {
+    cardCate.classList.add('c_front');
+  } else if (category === '풀스택') {
+    cardCate.classList.add('c_full');
+  } else if (category === '백엔드') {
+    cardCate.classList.add('c_back');
+  } else if (category === '미정') {
+    cardCate.classList.add('c_unselect');
   }
 
-  const progressElement = document.createElement("div");
-  progressElement.classList.add("degree");
-  progressElement.textContent = progress;
+  const progressElement = document.createElement('div');
+  progressElement.classList.add('degree');
 
-  const iconRight = document.createElement("img");
-  iconRight.classList.add("iconRight");
-  iconRight.src = "./right_icon.png";
+  const progressBar = document.createElement('div');
+  progressBar.classList.add('progress-bar');
+  progressBar.style.width = progress + "%";
+  progressElement.appendChild(progressBar);
 
-  // Add click event to iconRight to navigate to index2.html
-  iconRight.addEventListener("click", function () {
-    window.location.href = "index2.html"; // Replace 'index2.html' with your desired destination
+  const iconRight = document.createElement('img');
+  iconRight.classList.add('iconRight');
+  iconRight.src = './right_icon.png';
+
+  iconRight.addEventListener('click', function () {
+    window.location.href = '';
   });
 
   friend_news_card.appendChild(friendImg);
@@ -151,31 +108,28 @@ function createCard(category, pername, img, progress) {
   return friend_news_card;
 }
 
+
+
 // Check if friends_news array is empty
 if (friends_news.length === 0) {
-  const noFriendsImage = document.createElement("img");
-  noFriendsImage.src = "./addfriend.png";
-  noFriendsImage.classList.add("addfriend");
+  const noFriendsImage = document.createElement('img');
+  noFriendsImage.src = './addfriend.png';
+  noFriendsImage.classList.add('addfriend');
   friendNews.appendChild(noFriendsImage);
 } else {
-  friends_news.forEach((friend) => {
-    const card = createCard(
-      friend.category,
-      friend.name,
-      friend.img,
-      friend.progress
-    );
+  friends_news.forEach(friend => {
+    const card = createCard(friend.category, friend.name, friend.img, friend.progress);
     friendNews.appendChild(card);
   });
 }
 
 // Function to create problem cards
 function create_P_Card(problem) {
-  const pcard = document.createElement("div");
-  pcard.classList.add("problemCard");
+  const pcard = document.createElement('div');
+  pcard.classList.add('problemCard');
 
-  const cardText = document.createElement("p");
-  cardText.classList.add("problemText");
+  const cardText = document.createElement('p');
+  cardText.classList.add('problemText');
   cardText.textContent = problem;
 
   pcard.appendChild(cardText);
@@ -184,83 +138,66 @@ function create_P_Card(problem) {
 }
 
 // Append problem cards
-problems.forEach((item) => {
+problems.forEach(item => {
   const problem = create_P_Card(item.problem);
   problemCards.appendChild(problem);
 });
 
 // Function to create todo cards
-function createCompleteCard(
-  img,
-  category,
-  name,
-  completeWork1,
-  completeWork2,
-  completeWork3,
-  completeWork4
-) {
-  const complete_card = document.createElement("div");
-  complete_card.classList.add("friend");
+function createCompleteCard(img, category, name, completeWork1, completeWork2, completeWork3, completeWork4) {
+  const complete_card = document.createElement('div');
+  complete_card.classList.add('friend');
 
-  const friend_profile = document.createElement("div");
-  friend_profile.classList.add("friend_profile");
+  const friend_profile = document.createElement('div');
+  friend_profile.classList.add('friend_profile');
   complete_card.appendChild(friend_profile);
 
-  const rightImage = document.createElement("img");
+  const rightImage = document.createElement('img');
   rightImage.src = "./right_icon.png";
-  rightImage.classList.add("friend_iconRight");
+  rightImage.classList.add('friend_iconRight');
   friend_profile.appendChild(rightImage);
 
-  const friendImg = document.createElement("div");
-  friendImg.classList.add("friendImg");
-  const imgElement = document.createElement("img");
+  const friendImg = document.createElement('div');
+  friendImg.classList.add('friendImg');
+  const imgElement = document.createElement('img');
   imgElement.src = img;
-  imgElement.alt = "Profile Image";
+  imgElement.alt = 'Profile Image';
   friendImg.appendChild(imgElement);
   friend_profile.appendChild(friendImg);
 
-  const friendName = document.createElement("p");
-  friendName.classList.add("friendName");
+  const friendName = document.createElement('p');
+  friendName.classList.add('friendName');
   friendName.textContent = name;
   friend_profile.appendChild(friendName);
 
-  const friend_category = document.createElement("p");
-  friend_category.classList.add(
-    "friend_category",
-    category === "프론트"
-      ? "fc_front"
-      : category === "백엔드"
-      ? "fc_back"
-      : category === "풀스택"
-      ? "fc_full"
-      : "fc_undefined"
-  );
+  const friend_category = document.createElement('p');
+  friend_category.classList.add('friend_category', category === '프론트' ? 'fc_front' : category === '백엔드' ? 'fc_back' : category === '풀스택' ? 'fc_full' : 'fc_undefined');
   friend_category.textContent = category;
   friend_profile.appendChild(friend_category);
 
-  const complete_friend_todo = document.createElement("div");
-  complete_friend_todo.classList.add("complete_friend_todo");
+  const complete_friend_todo = document.createElement('div');
+  complete_friend_todo.classList.add('complete_friend_todo');
   complete_card.appendChild(complete_friend_todo);
 
-  const completeToDo_list = document.createElement("div");
-  completeToDo_list.classList.add("completeToDo_list");
+  const completeToDo_list = document.createElement('div');
+  completeToDo_list.classList.add('completeToDo_list');
   complete_friend_todo.appendChild(completeToDo_list);
 
   const works = [completeWork1, completeWork2, completeWork3, completeWork4];
-  works.forEach((work) => {
-    const completeToDo = document.createElement("div");
-    completeToDo.classList.add("completeToDo");
+  works.forEach(work => {
+    const completeToDo = document.createElement('div');
+    completeToDo.classList.add('completeToDo');
     completeToDo_list.appendChild(completeToDo);
 
-    const checked = document.createElement("div");
-    checked.classList.add("checked");
-    const checkImg = document.createElement("img");
-    checkImg.src = "./checkbox.png";
+    const checked = document.createElement('div');
+    checked.classList.add('checked');
+    const checkImg = document.createElement('img');
+    checkImg.src = './checkbox.png';
     checked.appendChild(checkImg);
     completeToDo.appendChild(checked);
 
-    const complete_work = document.createElement("p");
-    complete_work.classList.add("complete_work");
+    const complete_work = document.createElement('p');
+    complete_work.classList.add('complete_work');
     complete_work.textContent = work;
     completeToDo.appendChild(complete_work);
   });
@@ -268,28 +205,21 @@ function createCompleteCard(
   return complete_card;
 }
 
+
 // Function to render todos
 function renderTodos(category) {
-  todoBlock.innerHTML = ""; // Clear existing cards
+  todoBlock.innerHTML = ''; // Clear existing cards
 
-  if (category === "전체") {
+  if (category === '전체') {
     renderRandomTodos();
     return;
   }
 
   todolists
-    .filter((todo) => category === "전체" || todo.category === category)
+    .filter(todo => category === '전체' || todo.category === category)
     .slice(0, 4)
-    .forEach((item) => {
-      const complete_card = createCompleteCard(
-        item.img,
-        item.category,
-        item.name,
-        item.completeWork1,
-        item.completeWork2,
-        item.completeWork3,
-        item.completeWork4
-      );
+    .forEach(item => {
+      const complete_card = createCompleteCard(item.img, item.category, item.name, item.completeWork1, item.completeWork2, item.completeWork3, item.completeWork4);
       todoBlock.appendChild(complete_card);
     });
 }
@@ -297,42 +227,35 @@ function renderTodos(category) {
 // Function to render random todos
 function renderRandomTodos() {
   const shuffledTodos = todolists.sort(() => 0.5 - Math.random()).slice(0, 4);
-  shuffledTodos.forEach((item) => {
-    const complete_card = createCompleteCard(
-      item.img,
-      item.category,
-      item.name,
-      item.completeWork1,
-      item.completeWork2,
-      item.completeWork3,
-      item.completeWork4
-    );
+  shuffledTodos.forEach(item => {
+    const complete_card = createCompleteCard(item.img, item.category, item.name, item.completeWork1, item.completeWork2, item.completeWork3, item.completeWork4);
     todoBlock.appendChild(complete_card);
   });
 }
 
 // Initial render
-renderTodos("전체");
+renderTodos('전체');
 
 // Filter button event listeners
-document.addEventListener("DOMContentLoaded", function () {
-  const categories = document.querySelectorAll(".selectCategory div");
+document.addEventListener('DOMContentLoaded', function () {
+  const categories = document.querySelectorAll('.selectCategory div');
 
-  categories.forEach((category) => {
-    category.addEventListener("click", function () {
+  categories.forEach(category => {
+    category.addEventListener('click', function () {
       // 스타일 초기화
-      categories.forEach((c) => {
-        c.style.backgroundColor = "#F7F7F7";
-        c.style.border = "2px solid #ABABAB";
+      categories.forEach(c => {
+        c.style.backgroundColor = '#F7F7F7';
+        c.style.border = '2px solid #ABABAB';
       });
 
       // 선택된 카테고리 스타일 변경
-      this.style.backgroundColor = "#F8F0FE";
-      this.style.border = "2px solid #7D08D9";
+      this.style.backgroundColor = '#F8F0FE';
+      this.style.border = '2px solid #7D08D9';
 
       // 선택된 카테고리에 따른 할 일 필터링
-      const selectedCategory = this.getAttribute("data-category");
+      const selectedCategory = this.getAttribute('data-category');
       renderTodos(selectedCategory);
     });
   });
 });
+

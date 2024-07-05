@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <link rel="stylesheet" type="text/css"
+        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header1">
+            <div class="codea">
+                <a>
+                    <img src="./logo-codea.png">
+                </a>
+                codea
+            </div>
+            <nav class="headerNav">
+                <ul>
+                    <!-- href 추가 -->
+                    <li class="home" onclick="location.href='./'">
+                            홈
+                    </li>
+                    <li class="search" onclick="location.href='./'">
+                        <!-- href 추가 -->
+                            탐색
+                    </li>
+                    <!-- href 추가 -->
+                    <li class="nav_point" onclick="location.href='./'">
+                            포인트
+                    </li>
+                    <!-- href 추가 -->
+                    <li class="logout" onclick="location.href='./'">
+                        로그아웃   
+                    </li>
+                </ul>
+            </nav>
+            <div class="border1"></div>
+        </div>
+        <div class="header2">
+            <div class="DM_btn">
+                <a class="DM_btn_a">
+                    <img src="./icon-dm.png" class="DM_btn_img1">
+                </a>
+                <a class="DM_btn_a" href="">
+                    <img src="./right_icon.png" class="dmRigntIcon">
+                </a>
+            </div>
+
+        </div>
+        <div class="border2"></div>
+
+    </header>
+
+
+    <main>
+        <div class="wrap">
+            <div class="side">
+                <div class="friendBtn">
+                    <img class="percheck" src="./percheck.png">
+                    <span>친구 소식</span>
+                </div>
+                <div class="achiveDegree" id="achiveDegree">
+                    <div class="friend_news" id="friend_news"></div>
+                </div>
+            </div>
+                </div>
+            </div>
+            <div class="selectCategory">
+                <div class="sc_all filter-btn" data-category="전체">
+                    <a href="./index.html" >전체</a>
+                </div>
+                <div class="sc_front filter-btn" data-category="프론트">
+                    <a href="./index_front.html">프론트엔드</a>
+                </div>
+                <div class="sc_back filter-btn" data-category="백엔드">
+                    <a href="./index_back.html">백엔드</a>
+                </div>
+                <div class="sc_full filter-btn" data-category="풀스택">
+                    <a href="./index_full.html">풀스택</a>
+                </div>
+                <div class="sc_unsel filter-btn" data-category="미정">
+                    <a href="./index_unsel.html" >미정</a>
+                </div>
+            </div>
+            <div class="anotherProblem">다른 개발자들의 고민을 들어주세요!</div>
+            <div class="problems" id="problems">
+                <div class="problem"></div>
+            </div>
+            <div class="anotherToDo">
+                <span>다른 개발자들의 To Do를 탐색해보세요!</span>
+            </div>
+            <div class="friendToDo" id="friendToDo"></div>
+        </div>
+    </main>
+<script src="./search.js"></script>
+</body>
+
+</html>
