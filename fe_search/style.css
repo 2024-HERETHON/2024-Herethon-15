@@ -210,7 +210,7 @@ body {
 .c_unselect {
   background-color: #ffebf2;
 }
-.category a {
+.category span {
   font-family: Pretendard;
   font-size: 12px;
   display: flex;
