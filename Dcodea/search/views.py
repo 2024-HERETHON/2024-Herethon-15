@@ -60,3 +60,10 @@ class SearchFormView(FormView):
             for user in users
         }
         return user_todos
+
+def search_view(request):
+    users = User.objects.all()
+    context = {
+        'users': users,
+    }
+    return render(request, 'search.html', context)

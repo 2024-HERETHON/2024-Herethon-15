@@ -53,6 +53,7 @@ def main(request):
     questions = Question.objects.all()
     comments = Comment.objects.all()
     user_question = Question.objects.filter(user=request.user).last()
+    all_profiles = Profile.objects.all()
 
     return render(request, 'main.html', {
         'todo_form': todo_form,
@@ -66,5 +67,7 @@ def main(request):
         'user_profile': user_profile,
         'userName': request.user.username,
         'userPosition': request.user.userPosition,
-        'question': user_question.content if user_question else '블라블라'
+        'question': user_question.content if user_question else '블라블라',
+        'user_introduction': user_profile.introduction,  # user_profile의 introduction 값을 전달
+        'all_profiles': all_profiles,  # 모든 프로필을 전달
     })

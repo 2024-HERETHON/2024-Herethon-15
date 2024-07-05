@@ -184,7 +184,7 @@ addListBtn.addEventListener("click", function () {
         let expandedListBtn = document.createElement("button");
         expandedListBtn.textContent = listName;
         let img_e_add = document.createElement("img");
-        img_e_add.src = "images/add_icon_circle.svg";
+        img_e_add.src = "../img/add_icon_circle.svg";
         expandedListBtn.appendChild(img_e_add);
         expandedListBtn.classList.add("expanded_list");
 
