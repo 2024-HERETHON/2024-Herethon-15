@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: max(99vw, 692px);
+  width: max(99vw, 1024px);
   height: max(99vh, 849px);
 }
 
@@ -20,21 +20,20 @@ body {
 }
 
 .mainContainer {
-  width: 692px;
+  width: 1024px;
   height: 950px;
   background-color: white;
   border-radius: 32px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
 
 .contentContainer {
-  width: 100%;
-  height: 82%;
+  width: 1024px;
+  height: 766px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10%;
+  margin-top: 40px;
 }

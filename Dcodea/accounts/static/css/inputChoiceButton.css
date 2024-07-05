@@ -5,6 +5,7 @@
 }
 
 .choice_container {
+  margin-top: 180px;
   display: flex;
   gap: 10px;
 }

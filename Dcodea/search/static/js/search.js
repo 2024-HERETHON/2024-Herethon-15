@@ -13,17 +13,36 @@ const problems = [
     { problem: '제 능력을 못믿는 분들이 있는 경우에는 어떻게 해야할까요?' }
       ];
 
-const todolists = [
-    { img: addIconUrl, category: '프론트', name: '김민지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '프론트', name: '여예원', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '프론트', name: '이지연', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '프론트', name: '김수로', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '백엔드', name: '석탈해', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '백엔드', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '풀스택', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '미정', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-    { img: addIconUrl, category: '백엔드', name: '김춘추', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
-];
+      const todolists = [
+        { img: addIconUrl, category: '프론트', name: '김민지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '프론트', name: '여예원', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '프론트', name: '이지연', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '프론트', name: '김수로', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '석탈해', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '김알지', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '김춘추', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '오태경', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '박유빈', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '유다현', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '장유빈', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '안현준', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '이순신', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '수정이', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '동덕이', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '덕성이', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '프론트', name: '서울여', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '프론트', name: '이대로', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '숙명이', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '백엔드', name: '성신요', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '아이린', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '미정', name: '고윤정', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '예다현', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '이아주', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' },
+        { img: addIconUrl, category: '풀스택', name: '최예빈', completeWork1: '완료된 일1 입력', completeWork2: '완료된 일2 입력', completeWork3: '완료된 일3 입력', completeWork4: '완료된 일4 입력' }
+      ];
+
 
 // Get DOM elements
 const friendNews = document.getElementById('achiveDegree');
