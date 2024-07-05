@@ -4,7 +4,8 @@ from django.conf import settings
 from .forms import TodoForm, QuestionForm, CommentForm, ProfileImageForm, IntroductionForm
 from .models import Profile, Todo, Question, Comment
 from django.http import JsonResponse
-from django.contrib import messages
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required
 def main(request):
@@ -74,25 +75,19 @@ def main(request):
         'all_profiles': all_profiles,  # 모든 프로필을 전달
     })
 
-@login_required
+@require_POST
+@csrf_exempt
 def delete_todo(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)
+    todo.delete()
+    return JsonResponse({'status': 'success'})
 
-    if request.method == 'POST':
-        todo.delete()
-        messages.success(request, '할 일을 성공적으로 삭제하였습니다.')
-        return JsonResponse({'status': 'success'})
-    return render(request, 'todos/todo_confirm_delete.html', {'todo': todo})
-
-@login_required
+@require_POST
+@csrf_exempt
 def edit_todo(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)
-
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        new_description = data.get('description', todo.description)
-        todo.description = new_description
-        todo.save()
-        messages.success(request, '할 일을 성공적으로 수정하였습니다.')
-        return JsonResponse({'status': 'success'})
-    return render(request, 'todos/todo_edit.html', {'todo': todo})
+    data = json.loads(request.body)
+    new_description = data.get('description', '')
+    todo.description = new_description
+    todo.save()
+    return JsonResponse({'status': 'success'})

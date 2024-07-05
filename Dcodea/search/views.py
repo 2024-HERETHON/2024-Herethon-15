@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.http import JsonResponse
 from todos.models import Todo, Question
 from .forms import PostSearchForm
 from django.views.generic.edit import FormView
@@ -11,8 +11,8 @@ User = get_user_model()
 
 @login_required
 def detail_view(request, userId):
-    todos = Todo.objects.filter(user__userId=userId)
     user = get_object_or_404(User, userId=userId)
+    todos = Todo.objects.filter(user=user)
     questions = Question.objects.filter(user=user)
     context = {
         'user': user,
@@ -54,11 +54,17 @@ class SearchFormView(FormView):
         return self.render_to_response(content)
 
     def get_user_todos(self, userPosition):
-        users = User.objects.filter(userPosition=userPosition)
-        user_todos = {
-            user: Todo.objects.filter(user=user)
+        if userPosition == '전체':
+            users = User.objects.all()
+        else:
+            users = User.objects.filter(userPosition=userPosition)
+        user_todos = [
+            {
+                'user': user,
+                'todos': Todo.objects.filter(user=user)
+            }
             for user in users
-        }
+        ]
         return user_todos
 
 def search_view(request):
@@ -67,3 +73,22 @@ def search_view(request):
         'users': users,
     }
     return render(request, 'search.html', context)
+
+@login_required
+def filter_view(request, category):
+    if category == '전체':
+        users = User.objects.all()
+    else:
+        users = User.objects.filter(userPosition=category)
+    user_todos = [
+        {
+            'user': {
+                'userId': user.userId,
+                'username': user.username,
+                'userPosition': user.userPosition,
+            },
+            'todos': list(Todo.objects.filter(user=user).values('description'))
+        }
+        for user in users
+    ]
+    return JsonResponse({'user_todos': user_todos})

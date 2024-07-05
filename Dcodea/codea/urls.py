@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include 
 import todos.views
+import point.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,5 +26,8 @@ urlpatterns = [
     path('', todos.views.main, name='todo'),
     path('accounts/', include('accounts.urls')),
     path('search/', include('search.urls')), 
+    path('todos/<int:todo_id>/delete/', todos.views.delete_todo, name='delete_todo'),
+    path('todos/<int:todo_id>/edit/', todos.views.edit_todo, name='edit_todo'),
+    path('point/', point.views.point_view, name='point'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

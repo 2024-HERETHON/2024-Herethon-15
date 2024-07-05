@@ -19,9 +19,9 @@
     <nav>
       <div class="nav_container"></div>
       <div class="logo">codea</div>
-      <button class="menu" id="home">홈</button>
+      <button class="menu" id="home" onclick="location.href='{% url 'todo' %}'">홈</button>
       <button class="menu" id="search" onclick="location.href='{% url 'search:search' %}'">탐색</button>
-      <button class="menu" id="point">포인트</button>
+      <button class="menu" id="point" onclick="location.href='{% url 'point' %}'">포인트</button>
       <button class="menu" id="logout" onclick="location.href='{% url 'accounts:logout' %}'">
         로그아웃
       </button>
@@ -127,8 +127,8 @@
         <li id="todo-{{ todo.id }}">
           <input type="checkbox" class="checkbox" {% if todo.completed %}checked{% endif %} />
           <span class="todo_text">{{ todo.description }}</span>
-          <button class="edit_btn">편집</button>
-          <button class="del_btn">삭제</button>
+          <button class="edit_btn" data-id="{{ todo.id }}"></button>
+          <button class="del_btn" data-id="{{ todo.id }}"></button>
         </li>
         {% endfor %}
       </ul>

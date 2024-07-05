@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codea : 여성 개발자들의 놀이터</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/point.css' %}" />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav_container"></div>
+            <div class="logo">codea</div>
+            <button class="menu" id="home" onclick="location.href='{% url 'todo' %}'">홈</button>
+            <button class="menu" id="search" onclick="location.href='{% url 'search:search' %}'">탐색</button>
+            <button class="menu" id="point" onclick="location.href='{% url 'point' %}'">포인트</button>
+            <button class="menu" id="logout" onclick="location.href='{% url 'accounts:logout' %}'">로그아웃</button>
+        </nav>
+
+        <hr class="nav_hr" />
+
+        <section class="point_container">
+            <div id="mmypoint">
+                <img src="{% static 'img/point_icon.svg' %}" class="point_icon" />
+                <div class="my_point_txt">내 포인트</div>
+                <div class="view_box">
+                    <div class="view_box_text">
+                        <div id="myPoint">11</div>
+                        <div>p</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info_big">환급</div>
+            <form>
+                <div id="iinput">
+                    <div class="info_small">신청금액</div>
+                    <div class="input_point_box">
+                        <input type="number" class="input_point" id="input_point_num" />
+                        <div class="input_point_txt">p</div>
+                    </div>
+                </div>
+                <div id="iinput">
+                    <div class="info_small">예금주 이름</div>
+                    <input type="text" class="input_name" placeholder="예금주(본명)" />
+                </div>
+                <div id="iinput">
+                    <div class="info_small">입금계좌</div>
+                    <select id="input_bank">
+                        <option selected hidden disabled>은행</option>
+                        <option value="국민">KB국민은행</option>
+                        <option value="우리">우리은행</option>
+                        <option value="하나">KEB하나은행</option>
+                        <option value="기업">IBK기업은행</option>
+                        <option value="토스">토스뱅크</option>
+                        <option value="카카오">카카오뱅크</option>
+                    </select>
+                    <input class="input_account" type="number" placeholder="계좌번호를 입력하세요." />
+                </div>
+                <div id="iinput">
+                    <div class="info_small">주민등록번호</div>
+                    <div class="input_idnum_box">
+                        <input class="input_idnum_f" type="number" placeholder="생년월일(6자리)" />
+                        <p style="font-size: 20px">-</p>
+                        <input class="input_idnum_b" type="number" placeholder="뒷자리(6자리)" />
+                    </div>
+                </div>
+            </form>
+            <div id="aagree">
+                <div class="info_small">약관동의</div>
+                <input type="checkbox" class="checkbox" />
+                <div class="agree_text">
+                    <div class="agree_all">모두 동의합니다.</div>
+                    <div class="agree_each_1">
+                        (필수) 개인정보 수집 및 이용에 대한 동의
+                        <a href="">자세히보기</a>
+                    </div>
+                    <div>
+                        <div class="agree_each_2">
+                            (필수) 제 3자 정보제공 동의
+                            <a href="">자세히보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="return_btn">환급 신청하기</button>
+        </section>
+        <script src="{% static 'js/point.js' %}"></script>
+    </div>
+</body>
+
+</html>

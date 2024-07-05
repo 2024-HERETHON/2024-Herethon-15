@@ -108,10 +108,10 @@ function create_P_Card(problem) {
 }
 
 // Append problem cards
-problems.forEach(item => {
-    const problem = create_P_Card(item.problem);
-    problemCards.appendChild(problem);
-});
+// problems.forEach(item => {
+//     const problem = create_P_Card(item.problem);
+//     problemCards.appendChild(problem);
+// });
 
 // Function to create todo cards
 function createCompleteCard(img, category, name, completeWork1, completeWork2, completeWork3, completeWork4) {
@@ -208,7 +208,7 @@ renderTodos('전체');
 
 // Filter button event listeners
 document.addEventListener('DOMContentLoaded', function () {
-    const categories = document.querySelectorAll('.selectCategory div');
+    const categories = document.querySelectorAll('.flex-box div');
 
     categories.forEach(category => {
         category.addEventListener('click', function () {

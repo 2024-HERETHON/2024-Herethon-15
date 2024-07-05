@@ -1,4 +1,4 @@
-<!--
+
 <!DOCTYPE html>
 <html lang="ko">
 <head> 
@@ -30,7 +30,7 @@
                     <li class="search" onclick="location.href='{% url 'search:search' %}'">
                             탐색
                     </li>
-                    <li class="nav_point" onclick="location.href='./'">
+                    <li class="nav_point" onclick="location.href='{% url 'point' %}'">
                             포인트
                     </li>
                     <li class="logout" onclick="location.href='{% url 'accounts:logout' %}'">
@@ -66,26 +66,34 @@
                     </div>
                 </div>
                 <div class="selectCategory">
-                    <div class="sc_all filter-btn" data-category="전체">
+                   <div class="flex-box">
+                    <div class="filter-btn" data-category="전체">
                         <span>전체</span>
                     </div>
-                    <div class="sc_front filter-btn" data-category="프론트">
+                    <div class="filter-btn" data-category="프론트">
                         <span>프론트엔드</span>
                     </div>
-                    <div class="sc_back filter-btn" data-category="백엔드">
+                    <div class="filter-btn" data-category="백엔드">
                         <span>백엔드</span>
                     </div>
-                    <div class="sc_full filter-btn" data-category="풀스택">
+                    <div class="filter-btn" data-category="풀스택">
                         <span>풀스택</span>
                     </div>
-                    <div class="sc_unsel filter-btn" data-category="미정">
+                    <div class="filter-btn" data-category="미정">
                         <span>미정</span>
                     </div>
+                   </div>
                 </div>
                 <div class="anotherProblem">다른 개발자들의 고민을 들어주세요!</div>
                 <div class="problems" id="problems">
-                    {{ question }}
-                        <div class="problem"></div>
+                        
+                            <ul class="question-div">
+                                {% for question in questions %}
+                                <li class="question-item">
+                                    <a href="{% url 'search:detail' question.user.userId %}">{{ question.content }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
                     </div>
                 
             </div>
@@ -119,88 +127,5 @@
         
     </script>
 <script src="{% static 'js/search.js' %}"></script>
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
-    {% load static %}
-    <!-- 여기부터 css와 js 파일 넣으시면 됩니다. -->
-    <style>
-        .container {
-            font-family: Arial, sans-serif;
-        }
-        .todo-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .todo-item p {
-            margin: 0 10px;
-        }
-        .todo-item .description {
-            flex: 1;
-        }
-        .todo-item .completed {
-            color: green;
-        }
-        .user-item h3 {
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <form action="." method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">찾기</button>
-        </form>
-
-        {% if userPosition %}
-            <h2>{{ userPosition }}에 대한 결과</h2>
-        {% endif %}
-
-        {% if user_todos %}
-        <ul>
-            {% for user, todos in user_todos.items %}
-            <li class="user-item">
-                <h3>{{ user.username }}</h3>
-                <p class="position">Position: {{ user.userPosition }}</p>
-                <ul>
-                    {% for todo in todos %}
-                    <li class="todo-item">
-                        <p class="description">Description: {{ todo.description }}</p>
-                        <p class="completed">Completed: {{ todo.completed }}</p>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>결과가 없습니다.</p>
-        {% endif %}
-
-        {% if questions %}
-        <h2>고민 리스트</h2>
-        <ul>
-            {% for question in questions %}
-            <li class="question-item">
-                <a href="{% url 'search:detail' question.user.userId %}">{{ question.content }}</a>
-                <p class="question-author">작성자: {{ question.user.username }}</p>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>고민이 없습니다.</p>
-        {% endif %}
-    </div>
-</body>
-</html>
-
 
 

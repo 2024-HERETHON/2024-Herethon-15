@@ -232,32 +232,52 @@ addListBtn.addEventListener("click", function () {
             list.appendChild(li_e);
             inputField_e.value = "";
 
-            // 편집 버튼 클릭 시 텍스트 수정 기능
-            editBtn_e.addEventListener("click", function () {
-              let editInput_e = document.createElement("input");
-              editInput_e.type = "text";
-              editInput_e.value = todoText_e.textContent.trim();
-              editInput_e.classList.add("edit_todo_e");
-
-              li_e.replaceChild(editInput_e, todoText_e); // 기존 텍스트 대체
-
-              editInput_e.focus(); // editInput_e에 포커스 설정
-
-              editInput_e.addEventListener("keypress", function (e) {
-                if (e.key === "Enter") {
-                  if (editInput_e.value.trim() === "") {
-                    alert("수정할 내용을 입력해주세요.");
-                  } else {
-                    todoText_e.textContent = editInput_e.value.trim(); // 수정된 텍스트 반영
-                    li_e.replaceChild(todoText_e, editInput_e);
+            document.querySelectorAll('.edit_btn').forEach(button => {
+              button.addEventListener('click', function () {
+                const todoId = this.getAttribute('data-id');
+                const liElement = document.getElementById(`todo-${todoId}`);
+                const todoText = liElement.querySelector('.todo_text');
+                const currentDescription = todoText.textContent.trim();
+                const editInput = document.createElement('input');
+                editInput.type = 'text';
+                editInput.value = currentDescription;
+                editInput.classList.add('edit_todo');
+            
+                liElement.replaceChild(editInput, todoText); // 기존 텍스트 대체
+            
+                editInput.focus(); // editInput에 포커스 설정
+            
+                editInput.addEventListener('keypress', async function(e) {
+                  if (e.key === 'Enter') {
+                    const newDescription = editInput.value.trim();
+                    if (newDescription === "") {
+                      alert("수정할 내용을 입력해주세요.");
+                    } else {
+                      try {
+                        const response = await fetch(`/todos/${todoId}/edit/`, {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': '{{ csrf_token }}'
+                          },
+                          body: JSON.stringify({ description: newDescription })
+                        });
+            
+                        if (response.ok) {
+                          todoText.textContent = newDescription; // 수정된 텍스트 반영
+                          liElement.replaceChild(todoText, editInput);
+                        } else {
+                          const errorText = await response.text();
+                          alert(`할 일을 수정하는 데 실패했습니다. 오류: ${errorText}`);
+                        }
+                      } catch (error) {
+                        console.error('Error editing todo:', error);
+                        alert('할 일을 수정하는 동안 오류가 발생했습니다.');
+                      }
+                    }
                   }
-                }
+                });
               });
-            });
-
-            // 삭제 버튼 클릭 시 실행될 코드
-            deleteBtn_e.addEventListener("click", function () {
-              list.removeChild(li_e);
             });
 
             // 체크박스 클릭 시 글자색 변경
