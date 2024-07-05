@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: max(99vw, 692px);
+  width: max(99vw, 1024px);
   height: max(99vh, 849px);
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 .mainContainer {
-  width: 692px;
+  width: 1024px;
   height: 950px;
   background-color: white;
   border-radius: 32px;
@@ -30,7 +30,7 @@ body {
 }
 
 .contentContainer {
-  width: 692px;
+  width: 1024px;
   height: 766px;
   display: flex;
   flex-direction: column;
