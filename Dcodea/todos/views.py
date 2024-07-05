@@ -46,6 +46,7 @@ def main(request):
     todos = Todo.objects.filter(user=request.user).order_by('date')
     questions = Question.objects.all()
     comments = Comment.objects.all()
+    user_question = Question.objects.filter(user=request.user).last()
 
     return render(request, 'main.html', {
         'todo_form': todo_form,
@@ -58,4 +59,5 @@ def main(request):
         'user_profile': user_profile,
         'userName': request.user.username,
         'userPosition': request.user.userPosition,
+        'question': user_question.content if user_question else '블라블라'
     })

@@ -9,10 +9,13 @@ class ProfileImageForm(forms.ModelForm):
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = ['description', 'date', 'completed']
+        fields = ['description']
+        #fields = ['description', 'date', 'completed']
+        '''
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+        '''
 
 class QuestionForm(forms.ModelForm):
     class Meta:

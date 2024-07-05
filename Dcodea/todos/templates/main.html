@@ -1,186 +1,147 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>codea : 여성 개발자들의 놀이터</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="container">
-      <nav>
-        <div class="nav_container"></div>
-        <div class="logo">codea</div>
-        <button class="menu" id="home">홈</button>
-        <button class="menu" id="search">탐색</button>
-        <button class="menu" id="point">포인트</button>
-        <button
-          class="menu"
-          id="logout"
-          onclick="location.href='{% url 'accounts:logout' %}'"
-        >
-          로그아웃
-        </button>
-      </nav>
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>codea : 여성 개발자들의 놀이터</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet" />
+</head>
 
-      <hr class="nav_hr" />
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav_container"></div>
+      <div class="logo">codea</div>
+      <button class="menu" id="home">홈</button>
+      <button class="menu" id="search">탐색</button>
+      <button class="menu" id="point">포인트</button>
+      <button class="menu" id="logout" onclick="location.href='{% url 'accounts:logout' %}'">
+        로그아웃
+      </button>
+    </nav>
 
-      <section>
-        <div class="profile_container">
-          <form method="post" enctype="multipart/form-data" name="profile_form">
-            {% csrf_token %}
-            <input
-              type="file"
-              class="real-upload"
-              name="profile_image"
-              accept="image/*"
-              style="display: none"
-            />
-            <img
-              src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'img/profile.svg' %}{% endif %}"
-              class="profile_img"
-            />
-            <img
-              src="{% static 'img/profile_edit.svg' %}"
-              class="profile_edit"
-              onclick="document.querySelector('.real-upload').click();"
-            />
-            <input type="hidden" class="profile_form" value="profile_form" />
-            <input type="submit" value="저장" style="display: none" />
-          </form>
+    <hr class="nav_hr" />
 
-          <div class="profile_info">
-            <div class="profile_name">{{user.username}}</div>
-            <br />
-            <div class="profile_tag">{{user.userPosition}}</div>
-          </div>
-        </div>
-        <textarea class="intro_box" placeholder="introduction..."></textarea>
-
-        <div class="show_cheer">
-          <div class="cheer_icon">받은응원</div>
-          <div class="cheer_icon">
-            <img src="{% static 'img/cheer_fist.svg' %}" />
-            <div class="cheer_cnt">16</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="todo_calendar">
-        <div class="calendar_text">
-          <img src="{% static 'img/calendar_icon.svg' %}" />
-          <span id="current_date"></span>
-        </div>
-        <div class="calendar_container">
-          <div class="calendar_box"></div>
-          <div class="ratio_box" style="--index: 0; --row: 0"></div>
-        </div>
-      </section>
-
-      <section class="worry_container">
-        <div class="worry_text">고민이 있나요?</div>
-        <div class="worry_text_detail">
-          익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
-        </div>
-        <form method="post">
+    <section>
+      <div class="profile_container">
+        <form method="post" enctype="multipart/form-data" name="profile_form">
           {% csrf_token %}
-          <div class="form-group">
-            {{ question_form.question.errors }}
-            <div class="hidden-label">{{ question_form.as_p }}</div>
-          </div>
-          <input type="hidden" name="question_form" value="question_form" />
-          <button type="submit" class="send_btn"></button>
+          <input type="file" class="real-upload" name="profile_image" accept="image/*" style="display: none" />
+          <img
+            src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'img/profile.svg' %}{% endif %}"
+            class="profile_img" />
+          <img src="{% static 'img/profile_edit.svg' %}" class="profile_edit"
+            onclick="document.querySelector('.real-upload').click();" />
+          <input type="hidden" class="profile_form" value="profile_form" />
+          <input type="submit" value="저장" style="display: none" />
         </form>
 
-        <button class="comment_btn" id="comment_btn"></button>
-        <div class="comment_bg"></div>
-        <div class="modal_wrap">
-          <div class="comment_close"><a href="#">x</a></div>
-          <div class="comment_content">
-            <div class="modal_worry">
-              <div class="worry_text">고민이 있나요?</div>
-              <div class="worry_text_detail">
-                익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
-              </div>
-              <textarea
-                class="modal_worry_box"
-                placeholder="고민을 입력해보세요!"
-              >
-{{ question_form.questions.value }}</textarea
-              >
-              <div class="comment_container" id="comments_section"></div>
-              <div class="comments_section" id="comments_section"></div>
+        <div class="profile_info">
+          <div class="profile_name">{{user.username}}</div>
+          <br />
+          <div class="profile_tag">{{user.userPosition}}</div>
+        </div>
+      </div>
+      <textarea class="intro_box" placeholder="introduction..."></textarea>
+
+      <div class="show_cheer">
+        <div class="cheer_icon">받은응원</div>
+        <div class="cheer_icon">
+          <img src="{% static 'img/cheer_fist.svg' %}" />
+          <div class="cheer_cnt">16</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="todo_calendar">
+      <div class="calendar_text">
+        <img src="{% static 'img/calendar_icon.svg' %}" />
+        <span id="current_date"></span>
+      </div>
+      <div class="calendar_container">
+        <div class="calendar_box"></div>
+        <div class="ratio_box" style="--index: 0; --row: 0"></div>
+      </div>
+    </section>
+
+    <section class="worry_container">
+      <div class="worry_text">고민이 있나요?</div>
+      <div class="worry_text_detail">
+        익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ question_form.question.errors }}
+          <div class="hidden-label">{{ question_form.as_p }}</div>
+        </div>
+        <input type="hidden" name="question_form" value="question_form" />
+        <button type="submit" class="send_btn"></button>
+      </form>
+
+      <button class="comment_btn" id="comment_btn"></button>
+      <div class="comment_bg"></div>
+      <div class="modal_wrap">
+        <div class="comment_close"><a href="#">x</a></div>
+        <div class="comment_content">
+          <div class="modal_worry">
+            <div class="worry_text">고민이 있나요?</div>
+            <div class="worry_text_detail">
+              익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
             </div>
+            <textarea class="modal_worry_box" placeholder="고민을 입력해보세요!">{{ question }}</textarea>
+            <div class="comment_container" id="comments_section"></div>
+            <div class="comments_section" id="comments_section"></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="todo_list">
-        <br />
-        <button class="todo_input">
-          Today
-          <img src="{% static 'img/add_icon_circle.svg' %}" />
-        </button>
-        <br />
-        <form method="post" name="todo_form" class="todo_input_btn">
-          {% csrf_token %}
-          <input
-            type="hidden"
-            name="todo_form"
-            value="todo_form"
-            class="input_field"
-            id="input_field"
-            placeholder="할 일 입력"
-          />
-          <div class="hidden-label">{{ todo_form.as_p }}</div>
-          {{ todo_form.date.errors }} {{ todo_form.date }}
-        </form>
-        <ul id="todo_list" style="list-style-type: none">
-          {% for todo in todos %}
-          <li>
-            <input
-              type="checkbox"
-              class="checkbox"
-              {%
-              if
-              todo.completed
-              %}checked{%
-              endif
-              %}
-            />
-            <span class="todo_text">{{ todo.description }}</span>
-            <button class="edit_btn"></button>
-            <button class="del_btn"></button>
-          </li>
-          {% endfor %}
-        </ul>
-        <br /><br />
-        <button class="add_list">
-          <img src="{% static 'img/add_icon.svg' %}" />
-        </button>
-      </section>
+    <section class="todo_list">
+      <br />
+      <button class="todo_input">
+        Today
+        <img src="{% static 'img/add_icon_circle.svg' %}" />
+      </button>
+      <br />
+      <form method="post" name="todo_form" class="todo_input_btn">
+        {% csrf_token %}
+        <input type="hidden" name="todo_form" value="todo_form" class="input_field" id="input_field"
+          placeholder="할 일 입력" />
+        <div class="hidden-label">{{ todo_form.as_p }}</div>
+        {{ todo_form.date.errors }}
+      </form>
+      <ul id="todo_list" style="list-style-type: none">
+        {% for todo in todos %}
+        <li>
+          <input type="checkbox" class="checkbox" {% if todo.completed %}checked{% endif %} />
+          <span class="todo_text">{{ todo.description }}</span>
+          <button class="edit_btn"></button>
+          <button class="del_btn"></button>
+        </li>
+        {% endfor %}
+      </ul>
+      <br /><br />
+      <button class="add_list">
+        <img src="{% static 'img/add_icon.svg' %}" />
+      </button>
+    </section>
 
-      <script>
-        const addIconUrl = "{% static 'img/add_icon_circle.svg' %}";
-        const addIconUrl2 = "{% static 'img/comment_profile.svg' %}";
-      </script>
+    <script>
+      const addIconUrl = "{% static 'img/add_icon_circle.svg' %}";
+      const addIconUrl2 = "{% static 'img/comment_profile.svg' %}";
+    </script>
 
-      <script src="{% static 'js/main.js' %}"></script>
-      <script src="{% static 'js/profileImage.js' %}"></script>
-    </div>
-  </body>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/profileImage.js' %}"></script>
+  </div>
+</body>
+
 </html>
