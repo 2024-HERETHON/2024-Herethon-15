@@ -245,9 +245,8 @@ nav {
   background-color: transparent;
 }
 
-.input_field,
+#id_description,
 .input_field_e {
-  display: none;
   align-self: stretch;
   width: 704px;
   padding: 20px;
@@ -261,7 +260,7 @@ nav {
   line-height: 135%;
 }
 
-.input_field:focus,
+#id_description,
 .input_field_e:focus {
   outline-color: #7d08d9;
 }
@@ -528,7 +527,7 @@ input[type="date"]:focus {
   margin-top: 10px;
 }
 
-.worry_box {
+#id_content {
   display: flex;
   width: 432px;
   height: 130px;
@@ -546,9 +545,10 @@ input[type="date"]:focus {
   font-weight: 400;
   line-height: 150%;
   resize: none;
+  border: none;
 }
 
-.worry_box:focus {
+#id_content:focus {
   outline-color: #7d08d9;
 }
 
@@ -575,7 +575,7 @@ input[type="date"]:focus {
   height: 40px;
   cursor: pointer;
   position: absolute;
-  margin: -50px 0px 0px 435px;
+  margin: -65px 0px 0px 430px;
 }
 
 .comment_close {

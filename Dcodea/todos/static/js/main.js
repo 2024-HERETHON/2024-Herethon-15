@@ -33,68 +33,32 @@ function paintToDo() {
   if (newTodo === "") {
     alert("할 일을 입력해주세요.");
   } else {
+    // li 요소에 필요한 HTML 구조를 설정
     let li = document.createElement("li");
     li.classList.add("todo_item");
+    li.innerHTML = `
+      <input type="checkbox" class="checkbox">
+      <span class="todo_text">${newTodo}</span>
+      <button class="edit_btn">편집</button>
+      <button class="del_btn">삭제</button>
+    `;
 
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    li.appendChild(checkbox);
-    checkbox.classList.add("checkbox");
-
-    let todoText = document.createElement("span");
-    todoText.textContent = ` ${newTodo}`;
-    todoText.classList.add("todo_text");
-    li.appendChild(todoText);
-
-    let editBtn = document.createElement("button");
-    editBtn.classList.add("edit_btn");
-
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("del_btn");
-
-    li.appendChild(editBtn);
-    li.appendChild(deleteBtn);
-
+    // li 요소를 투두 리스트에 추가
     toDoList.appendChild(li);
     toDoInput.value = ""; // 투두 입력 시 input 칸 초기화
 
-    // 체크박스 클릭 시 글자색 변경
+    // 체크박스 클릭 시 글자 스타일 변경
+    const checkbox = li.querySelector(".checkbox");
+    const todoText = li.querySelector(".todo_text");
     checkbox.addEventListener("change", function () {
       if (this.checked) {
         todoText.style.opacity = "0.3";
       } else {
         todoText.style.opacity = "1";
       }
-      updateCompleteRate();
     });
 
-    // 편집 버튼 클릭 시 텍스트 수정 기능
-    editBtn.addEventListener("click", function () {
-      let editInput = document.createElement("input");
-      editInput.type = "text";
-      editInput.value = todoText.textContent.trim();
-      editInput.classList.add("edit_todo");
-
-      li.replaceChild(editInput, todoText); // 기존 텍스트 대체
-
-      editInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          if (editInput.value.trim() === "") {
-            alert("수정할 내용을 입력해주세요.");
-          } else {
-            todoText.textContent = ` ${editInput.value.trim()}`;
-            li.replaceChild(todoText, editInput); // 수정된 텍스트 반영
-          }
-        }
-      });
-
-      editInput.focus();
-    });
-
-    // 삭제 버튼 클릭 시 실행될 코드
-    deleteBtn.addEventListener("click", function () {
-      toDoList.removeChild(li);
-    });
+    updateCompleteRate();
   }
 }
 
@@ -102,6 +66,41 @@ toDoInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     paintToDo();
+  }
+});
+
+toDoList.addEventListener("click", function (event) {
+  const target = event.target;
+  const li = target.closest("li");
+
+  // 편집 버튼
+  if (target.classList.contains("edit_btn")) {
+    const todoText = li.querySelector(".todo_text");
+    let editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = todoText.textContent.trim();
+    editInput.classList.add("edit_todo");
+
+    li.replaceChild(editInput, todoText); // 기존 텍스트 대체
+
+    editInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        if (editInput.value.trim() === "") {
+          alert("수정할 내용을 입력해주세요.");
+        } else {
+          todoText.textContent = editInput.value.trim();
+          li.replaceChild(todoText, editInput); // 수정된 텍스트 반영
+        }
+      }
+    });
+
+    editInput.focus();
+  }
+
+  // 삭제 버튼
+  if (target.classList.contains("del_btn")) {
+    toDoList.removeChild(li);
+    updateCompleteRate();
   }
 });
 
