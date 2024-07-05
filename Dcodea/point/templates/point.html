@@ -3,34 +3,207 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Point</title>
+    <title>codea : 여성 개발자들의 놀이터</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/fe_point.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/fe_modal.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>포인트 관리</h1>
-    <p>내 포인트: {{ myPoint.myPoint }} P</p>
-    <form method="POST">
-      {% csrf_token %} {{ form.as_p }} // 예금주 이름
-      <input type="text" class="input_name" />
+    <div class="container">
+      <nav>
+        <div class="nav_container"></div>
+        <div class="logo">codea</div>
+        <button class="menu" id="home">홈</button>
+        <button class="menu" id="search">탐색</button>
+        <button class="menu" id="point">포인트</button>
+        <button class="menu" id="logout">로그아웃</button>
+      </nav>
 
-      // 입금계좌(은행, 계좌번호)
-      <select id="input_bank">
-        <option selected hidden disabled>은행</option>
-        <option value="국민">KB국민은행</option>
-        <option value="우리">우리은행</option>
-        <option value="하나">KEB하나은행</option>
-        <option value="기업">IBK기업은행</option>
-        <option value="토스">토스뱅크</option>
-        <option value="카카오">카카오뱅크</option>
-      </select>
-      <input class="input_account" type="number" />
+      <hr class="nav_hr" />
 
-      // 주민등록번호(앞자리, 뒷자리)
-      <input class="input_idnum_f" type="number" />
-      <input class="input_idnum_b" type="number" />
-      <button type="submit">환급 신청하기</button>
-    </form>
-    {% for message in messages %}
-    <p>{{ message }}</p>
-    {% endfor %}
+      <section class="point_container">
+        <div id="mmypoint">
+          <img src="{% static 'img/point_icon.svg' %}" class="point_icon" />
+          <div class="my_point_txt">내 포인트</div>
+          <div class="view_box">
+            <div class="view_box_text">
+              <div id="myPoint">{{ myPoint.myPoint }}</div>
+              <div>p</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info_big">환급</div>
+        <form method="POST">
+          {% csrf_token %} {{ form.as_p }}
+          <div id="iinput">
+            <div class="info_small">신청금액</div>
+            <div class="input_point_box">
+              <input
+                type="number"
+                class="input_point"
+                id="input_point_num"
+                value="0"
+              />
+              <div class="input_point_txt">p</div>
+            </div>
+          </div>
+          <div id="iinput">
+            <div class="info_small">예금주 이름</div>
+            <input
+              type="text"
+              class="input_name"
+              value=""
+              placeholder="예금주(본명)"
+            />
+          </div>
+          <div id="iinput">
+            <div class="info_small">입금계좌</div>
+            <select id="input_bank">
+              <option selected hidden disabled>은행</option>
+              <option value="국민">KB국민은행</option>
+              <option value="우리">우리은행</option>
+              <option value="하나">KEB하나은행</option>
+              <option value="기업">IBK기업은행</option>
+              <option value="토스">토스뱅크</option>
+              <option value="카카오">카카오뱅크</option>
+            </select>
+            <input
+              class="input_account"
+              type="number"
+              placeholder="계좌번호를 입력하세요."
+            />
+          </div>
+          <div id="iinput">
+            <div class="info_small">주민등록번호</div>
+            <div class="input_idnum_box">
+              <input
+                class="input_idnum_f"
+                type="number"
+                placeholder="생년월일(6자리)"
+                maxlength="6"
+                oninput="checkMaxLength(this)"
+              />
+              <p style="font-size: 20px">-</p>
+              <input
+                class="input_idnum_b"
+                type="number"
+                placeholder="뒷자리(7자리)"
+                maxlength="7"
+                oninput="checkMaxLength(this)"
+              />
+            </div>
+          </div>
+        </form>
+
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+
+        <div id="aagree">
+          <div class="info_small">약관동의</div>
+          <input type="checkbox" class="checkbox" />
+          <div class="agree_text">
+            <div class="agree_all">모두 동의합니다.</div>
+            <div class="agree_each_1">
+              (필수) 개인정보 수집 및 이용에 대한 동의
+              <button type="button" class="modal_btn" id="modal_btn1">
+                자세히보기
+              </button>
+            </div>
+            <div>
+              <div class="agree_each_2">
+                (필수) 제3자 정보제공 동의
+                <button type="button" class="modal_btn" id="modal_btn2">
+                  자세히보기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="return_btn" type="submit">환급 신청하기</button>
+      </section>
+
+      <div class="modal" id="modal1">
+        <div class="modal_popup">
+          <h3>개인정보 수집 및 이용에 대한 동의</h3>
+          <p>이용목적 : 본인확인, 포인트 환급</p>
+          <p>
+            수집항목 : 환급 유저 정보 (카드사명, 예금주명, 계좌번호, 휴대폰 번호
+            등)
+          </p>
+          <ul>
+            <li>
+              개인정보의 보유 및 이용 기간 : 탈퇴 시 지체없이 파기. (단, 관계
+              법령에 의해 보존이 필요한 경우 의무기간 동안 보관)
+            </li>
+            <li>
+              이용자는 동의를 거부 할 권리가 있습니다. (단, 동의를 거부 할 경우
+              포인트 환급이 불가합니다.)
+            </li>
+          </ul>
+          <button type="button" class="close_btn" id="close_btn1">닫기</button>
+        </div>
+      </div>
+
+      <div class="modal" id="modal2">
+        <div class="modal_popup">
+          <h3>제3자 정보제공 동의</h3>
+          <ol>
+            <li>
+              개인정보 제공 동의 : 코데아는 개인정보보호법에 따라 이용자의
+              개인정보에 있어 아래와 같이 알리고 동의를 받아 상품의 기획사에
+              제공합니다.
+            </li>
+            <li>개인정보 제공받는자 : 코데아</li>
+            <li>개인정보 이용 목적 : 포인트 환급</li>
+
+            <li>
+              개인정보 제공 항목 : 성명, 아이디, 휴대폰번호, 계좌정보,
+              주민등록번호
+            </li>
+            <li>
+              개인정보 보유 및 이용 기간 : 개인정보 이용목적 달성 시까지 (단,
+              관계 법령의 규정에 의해 보존의 필요가 있는 경우 및 사전 동의를
+              득한 경우 해당 보유기간까지)
+            </li>
+            <p>
+              ※ 위 개인정보 제공에 대한 동의를 거부할 권리가 있으며, 만약 동의를
+              거부할 경우 환급 서비스 이용에 제한을 받을 수 있습니다.
+            </p>
+          </ol>
+          <button type="button" class="close_btn" id="close_btn2">닫기</button>
+        </div>
+      </div>
+      <script src="{% static 'js/fe_point.js' %}"></script>
+      <script src="{% static 'fe_modal.js' %}"></script>
+      <script>
+        function checkMaxLength(object) {
+          if (object.value.length > object.maxLength) {
+            object.value = object.value.slice(0, object.maxLength);
+          }
+        }
+      </script>
+    </div>
   </body>
 </html>
