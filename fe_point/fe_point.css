@@ -59,7 +59,7 @@
   margin-left: 85%;
 }
 
-.menu#home {
+.menu#point {
   color: #7d08d9;
 }
 
@@ -89,7 +89,7 @@ nav {
 }
 
 .point_icon {
-  margin-top: -325px;
+  margin-top: -905px;
   margin-right: 20px;
 }
 
@@ -142,12 +142,12 @@ nav {
 }
 
 #s2 {
-  margin-top: 300px;
+  margin-top: 290px;
   margin-left: -85px;
 }
 
 .input_point {
-  width: 500px;
+  width: 470px;
   height: 72px;
   flex-shrink: 0;
   border-radius: 10px;
@@ -161,7 +161,7 @@ nav {
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  padding-right: 30px;
 }
 
 .input_point:focus {
@@ -170,7 +170,7 @@ nav {
 
 #s3 {
   margin-top: 390px;
-  margin-left: -675px;
+  margin-left: -645px;
 }
 
 .input_name {
@@ -180,7 +180,7 @@ nav {
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
   margin-top: 380px;
-  margin-left: 75px;
+  margin-left: 70px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -198,4 +198,180 @@ nav {
 
 .input_name ::placeholder {
   padding-right: 5px;
+}
+
+#point_unit {
+  margin-top: 300px;
+}
+
+#s4 {
+  margin-top: 490px;
+  margin-left: -670px;
+}
+
+.input_account {
+  width: 350px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gray-05, #f7f7f7);
+  margin-top: 480px;
+  margin-left: 20px;
+  border: none;
+  color: var(--gray-60, #5e5e5e);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  padding-right: 20px;
+  text-align: right;
+}
+
+.input_account:focus,
+.input_idnum_b:focus,
+.input_idnum_f:focus {
+  outline-color: #7d08d9;
+}
+
+#input_bank {
+  width: 120px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gray-05, #f7f7f7);
+  margin-top: 480px;
+  margin-left: 70px;
+  border: none;
+  color: var(--gray-60, #5e5e5e);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  padding-right: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#s5 {
+  margin-top: 590px;
+  margin-left: -680px;
+}
+
+.input_idnum_f {
+  width: 200px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gray-05, #f7f7f7);
+  margin-top: 580px;
+  margin-left: 25px;
+  border: none;
+  color: var(--gray-60, #5e5e5e);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.input_idnum_b {
+  width: 200px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gray-05, #f7f7f7);
+  margin-top: 580px;
+  margin-left: 20px;
+  border: none;
+  color: var(--gray-60, #5e5e5e);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  padding-right: 20px;
+  text-align: center;
+}
+
+p {
+  margin-top: 600px;
+  margin-left: 15px;
+}
+
+#s6 {
+  margin-top: 790px;
+  margin-left: -630px;
+}
+
+.checkbox {
+  margin-top: 795px;
+  margin-left: 50px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #7d08d9;
+}
+
+.agree_all {
+  margin-top: 790px;
+  margin-left: 10px;
+  color: var(--gray-90, #131313);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%;
+}
+
+.agree_each_1 {
+  margin-left: -160px;
+  margin-top: 840px;
+  color: var(--gray-90, #131313);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.agree_each_2 {
+  margin-left: -255px;
+  margin-top: 865px;
+  color: var(--gray-90, #131313);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+#return_btn {
+  margin-left: -255px;
+  margin-top: 950px;
+  display: flex;
+  width: 500px;
+  height: 80px;
+  padding: 32px 210px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--purple-40, #7d08d9);
+  color: var(--gray-00, #fff);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%;
+  cursor: pointer;
+  border: none;
 }
