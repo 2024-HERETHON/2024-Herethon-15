@@ -5,17 +5,19 @@
 }
 
 .checkPic {
-  margin-top: 8%;
+  margin-top: 64px;
 }
 
 .helloUser {
   font-family: "Pretendard-Regular";
   font-size: 36px;
   font-weight: bold;
+  margin-top: 104px;
 }
 
 .loginGo {
+  font-family: "Pretendard-Regular";
   font-size: 32px;
   color: #454545;
-  margin-top: -8%;
+  margin-top: 5px;
 }

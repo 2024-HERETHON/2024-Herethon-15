@@ -7,10 +7,8 @@
 .alreadyJoined {
   font-size: 20px;
   text-align: center;
-  position: absolute;
-  align-items: center;
   width: 1024px;
-  top: 780px;
+  margin-top: 60px;
   a {
     color: #7d08d9;
     font-weight: bold;
@@ -27,6 +25,6 @@
   border: none;
   font-size: 24px;
   font-family: "Pretendard-Regular";
-  position: absolute;
-  top: 840px;
+  margin-top: auto;
+  margin-bottom: 60px;
 }

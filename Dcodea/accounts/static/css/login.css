@@ -1,72 +1,74 @@
 /* 전체 이용 */
 body {
-	background-color: #f7f7f7;
-	margin: 0px;
-	display: flex;
-	font-family: Pretendard;
-  }
-  
-  .login_background {
-	width: max(99vw, 692px);
-	height: max(99vh, 849px);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-  
-  .login_container {
-	width: 692px;
-	height: 849px;
-	background-color: white;
-	display: flex;
-	border-radius: 32px;
-	align-items: center;
-	flex-direction: column;
-  }
-  
-  .li_codea {
-	color: #7d08d9;
-	width: 144px;
-	height: 64px;
-	display: flex;
-	margin-top: 60px;
-	font-family: IBM Plex Mono;
-	font-size: 48px;
-	font-weight: 600;
-  }
-  
-  /* login */
-  .login_wrap {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background-color: #ffffff;
-	margin-top: 40px;
-	gap: 20px;
-  }
-  
-  .li_login_btn {
-	text-decoration-line: none;
-	margin-top: 320px;
-  }
-  
-  .login_box {
-	background-color: #7d08d9;
-	width: 500px;
-	height: 80px;
-	border-radius: 12px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-  
-  .login_box span {
-	color: #ffffff;
-	font-family: Pretendard;
-	font-size: 24px;
-  }
-  /* .li_login_wrap {
+  background-color: #f7f7f7;
+  margin: 0px;
+  display: flex;
+  font-family: Pretendard;
+}
+
+.login_background {
+  width: max(99vw, 692px);
+  height: max(99vh, 849px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container {
+  width: 692px;
+  height: 849px;
+  background-color: white;
+  display: flex;
+  border-radius: 32px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.li_codea {
+  color: #7d08d9;
+  width: 144px;
+  height: 64px;
+  display: flex;
+  margin-top: 60px;
+  font-family: IBM Plex Mono;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+/* login */
+.login_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.li_login_btn {
+  text-decoration-line: none;
+  margin-top: 320px;
+  border: 0;
+  background-color: white;
+}
+
+.login_box {
+  background-color: #7d08d9;
+  width: 500px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_box span {
+  color: #ffffff;
+  font-family: Pretendard;
+  font-size: 24px;
+}
+/* .li_login_wrap {
 	width: 500px;
 	height: 217px;
   }
@@ -75,49 +77,51 @@ body {
 	height: 168px;
   }
    */
-  .li_email_input {
-	width: 500px;
-	height: 72px;
-	font-family: Pretendard;
-	text-align: left;
-	font-size: 24px;
-	border: 3px solid #787878;
-	border-radius: 10px;
-	padding-left: 20px;
-  }
-  
-  .li_pw_input {
-	width: 500px;
-	height: 72px;
-	font-family: Pretendard;
-	text-align: left;
-	font-size: 24px;
-	border-radius: 10px;
-	border: 3px solid #787878;
-	padding-left: 20px;
-  }
-  
-  .join_wrap {
-	margin-top: 20px;
-  }
-  
-  .join_wrap span {
-	color: #000000;
-	height: 24px;
-	font-family: Pretendard;
-	font-size: 20px;
-	margin-right: 10px;
-  }
-  
-  .li_join {
-	margin-right: 10px;
-  }
-  
-  .li_join span {
-	color: #7d08d9;
-	font-family: Pretendard;
-	font-size: 20px;
-	border: none;
-	cursor: pointer;
-	text-decoration: none;
-  }
+.li_email_input {
+  width: 500px;
+  height: 72px;
+  font-family: Pretendard;
+  text-align: left;
+  font-size: 24px;
+  border: 3px solid #787878;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+.li_pw_input {
+  width: 500px;
+  height: 72px;
+  font-family: Pretendard;
+  text-align: left;
+  font-size: 24px;
+  border-radius: 10px;
+  border: 3px solid #787878;
+  padding-left: 20px;
+}
+
+.join_wrap {
+  margin-top: 20px;
+}
+
+.join_wrap span {
+  color: #000000;
+  height: 24px;
+  font-family: Pretendard;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.li_join {
+  margin-right: 10px;
+  text-decoration-color: #7d08d9;
+  text-underline-position: under;
+}
+
+.li_join span {
+  color: #7d08d9;
+  font-family: Pretendard;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}

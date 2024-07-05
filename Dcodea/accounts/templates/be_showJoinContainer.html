@@ -5,21 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mainContainer.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/titleCodea.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/inputUserInfo.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mainContainer.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/titleCodea.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/inputUserInfo.css' %}"
+    />
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'css/inputChoiceButton.css' %}"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/nextButton.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/inputQuestion.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/nextButton.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/inputQuestion.css' %}"
+    />
   </head>
   <body>
     <div class="window" id="display">
       <div class="mainContainer">
-        <div class="titleCodea">codea</div>
+        <img class="titleCodea" src="{% static 'img/codea_logo.png' %}" />
         <form
           id="signupForm"
           method="post"
@@ -157,22 +177,9 @@
         </form>
       </div>
     </div>
-    <script src="{% static 'js/be_showNextContainer.js' %}" type="text/javascript"></script>
-    <!-- <script src="fe_inputUserInfo.js" type="text/javascript"></script>
-    <script src="fe_inputUserPosition.js" type="text/javascript"></script>
-    <script src="fe_inputUserOpen.js" type="text/javascript"></script> -->
-    <!-- <script>
-      let currentStep = 0;
-      function showStep(step) {
-        document.querySelectorAll(".step").forEach((el, index) => {
-          el.classList.toggle("active", index === step);
-        });
-      }
-      function nextStep() {
-        currentStep++;
-        showStep(currentStep);
-      }
-      document.addEventListener("DOMContentLoaded", showStep(currentStep));
-    </script> -->
+    <script
+      src="{% static 'js/be_showNextContainer.js' %}"
+      type="text/javascript"
+    ></script>
   </body>
 </html>

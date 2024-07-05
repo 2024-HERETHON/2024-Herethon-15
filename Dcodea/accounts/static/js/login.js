@@ -24,8 +24,8 @@ li_pw.addEventListener("focus", highlightBorder);
 li_loginBtn.addEventListener("focus", highlightBorder);
 
 // 키 입력 이벤트
-li_email.addEventListener("keyup", enableButton);
-li_pw.addEventListener("keyup", enableButton);
+// li_email.addEventListener("keyup", enableButton);
+// li_pw.addEventListener("keyup", enableButton);
 
 // 클릭 이벤트
 li_loginBtn.addEventListener("click", moveToMain);
