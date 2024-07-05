@@ -1,3 +1,4 @@
+/* 상단바 */
 .container {
   width: 1777px;
   height: 1080px;
@@ -83,17 +84,25 @@ nav {
   margin-top: 60px;
 }
 
+/* 포인터 컨테이너 */
 .point_container {
-  display: flex;
   padding: 120px 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
-.point_icon {
-  margin-top: -905px;
-  margin-right: 20px;
+#mmypoint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 80px;
 }
 
-.info_small {
+.my_point_txt {
+  width: 110px;
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 28px;
@@ -102,18 +111,14 @@ nav {
   line-height: 133%;
 }
 
-#s1 {
-  margin-top: 45px;
-  margin-right: 70px;
-}
-
 .view_box {
   width: 500px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .view_box_text {
@@ -125,11 +130,14 @@ nav {
   font-weight: 400;
   line-height: 135%;
   color: var(--gray-60, #5e5e5e);
-  margin-left: -480px;
-  margin-top: 47px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
 }
 
 .info_big {
+  width: 671px;
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 48px;
@@ -137,23 +145,58 @@ nav {
   font-weight: 700;
   line-height: 133%;
   letter-spacing: 0.96px;
-  margin-top: 200px;
-  margin-left: -650px;
+  margin-top: 100px;
 }
 
-#s2 {
-  margin-top: 290px;
-  margin-left: -85px;
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  #iinput {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+input:focus {
+  outline-color: #7d08d9;
+}
+
+.input_point_box {
+  width: 500px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#input_point_num {
+  width: 500px;
+  background-color: #f7f7f7;
+  padding-right: 50px;
+}
+
+.input_point_txt {
+  width: 50px;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  color: var(--gray-60, #5e5e5e);
+  position: absolute;
+  right: 10px;
 }
 
 .input_point {
-  width: 470px;
+  width: 480px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 280px;
-  margin-left: 75px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -161,26 +204,29 @@ nav {
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  padding-right: 30px;
 }
 
-.input_point:focus {
-  outline-color: #7d08d9;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
-#s3 {
-  margin-top: 390px;
-  margin-left: -645px;
+.info_small {
+  width: 150px;
+  color: var(--gray-90, #131313);
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 133%;
+  margin-right: 5px;
 }
 
 .input_name {
   width: 480px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 380px;
-  margin-left: 70px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -190,33 +236,17 @@ nav {
   font-weight: 400;
   line-height: 135%;
   padding-right: 20px;
-}
-
-.input_name:focus {
-  outline-color: #7d08d9;
 }
 
 .input_name ::placeholder {
   padding-right: 5px;
 }
 
-#point_unit {
-  margin-top: 300px;
-}
-
-#s4 {
-  margin-top: 490px;
-  margin-left: -670px;
-}
-
 .input_account {
   width: 350px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 480px;
-  margin-left: 20px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -229,20 +259,11 @@ nav {
   text-align: right;
 }
 
-.input_account:focus,
-.input_idnum_b:focus,
-.input_idnum_f:focus {
-  outline-color: #7d08d9;
-}
-
 #input_bank {
   width: 120px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 480px;
-  margin-left: 70px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -256,19 +277,16 @@ nav {
   cursor: pointer;
 }
 
-#s5 {
-  margin-top: 590px;
-  margin-left: -680px;
+.input_idnum_box {
+  display: flex;
+  gap: 27px;
 }
 
 .input_idnum_f {
   width: 200px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 580px;
-  margin-left: 25px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -284,11 +302,8 @@ nav {
 .input_idnum_b {
   width: 200px;
   height: 72px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-05, #f7f7f7);
-  margin-top: 580px;
-  margin-left: 20px;
   border: none;
   color: var(--gray-60, #5e5e5e);
   text-align: right;
@@ -301,28 +316,33 @@ nav {
   text-align: center;
 }
 
-p {
-  margin-top: 600px;
-  margin-left: 15px;
-}
-
-#s6 {
-  margin-top: 790px;
-  margin-left: -630px;
+#aagree {
+  display: flex;
+  width: 671px;
+  gap: 10px;
+  margin-top: 60px;
+  a {
+    margin-left: 5px;
+    text-decoration-line: none;
+    color: #919191;
+    font-size: 16px;
+  }
 }
 
 .checkbox {
-  margin-top: 795px;
-  margin-left: 50px;
   width: 24px;
   height: 24px;
   cursor: pointer;
   accent-color: #7d08d9;
 }
 
+.agree_text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .agree_all {
-  margin-top: 790px;
-  margin-left: 10px;
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 24px;
@@ -332,8 +352,6 @@ p {
 }
 
 .agree_each_1 {
-  margin-left: -160px;
-  margin-top: 840px;
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 16px;
@@ -343,8 +361,6 @@ p {
 }
 
 .agree_each_2 {
-  margin-left: -255px;
-  margin-top: 865px;
   color: var(--gray-90, #131313);
   font-family: Pretendard;
   font-size: 16px;
@@ -354,16 +370,11 @@ p {
 }
 
 #return_btn {
-  margin-left: -255px;
-  margin-top: 950px;
   display: flex;
   width: 500px;
   height: 80px;
-  padding: 32px 210px;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
   border-radius: 12px;
   background: var(--purple-40, #7d08d9);
   color: var(--gray-00, #fff);
@@ -374,4 +385,5 @@ p {
   line-height: 135%;
   cursor: pointer;
   border: none;
+  margin-top: 20px;
 }
