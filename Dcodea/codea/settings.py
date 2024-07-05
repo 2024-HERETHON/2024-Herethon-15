@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'todos',
     'accounts',
     'search',
+    'point',
 ]
 
 MIDDLEWARE = [

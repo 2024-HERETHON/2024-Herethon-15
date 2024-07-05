@@ -25,5 +25,6 @@ urlpatterns = [
     path('', todos.views.main, name='todo'),
     path('accounts/', include('accounts.urls')),
     path('search/', include('search.urls')), 
+    path('point/',include('point.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
