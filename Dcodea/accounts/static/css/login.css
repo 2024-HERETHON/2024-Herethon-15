@@ -37,6 +37,8 @@ body {
 
 /* login */
 .login_wrap {
+  width: 1024px;
+  height: 980px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +50,8 @@ body {
 
 .li_login_btn {
   text-decoration-line: none;
-  margin-top: 320px;
+  margin-top: auto;
+  margin-bottom: 60px;
   border: 0;
   background-color: white;
 }
@@ -68,15 +71,7 @@ body {
   font-family: Pretendard;
   font-size: 24px;
 }
-/* .li_login_wrap {
-	width: 500px;
-	height: 217px;
-  }
-  .idpw {
-	width: 500px;
-	height: 168px;
-  }
-   */
+
 .li_email_input {
   width: 500px;
   height: 72px;
@@ -97,10 +92,6 @@ body {
   border-radius: 10px;
   border: 3px solid #787878;
   padding-left: 20px;
-}
-
-.join_wrap {
-  margin-top: 20px;
 }
 
 .join_wrap span {

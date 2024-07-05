@@ -1,49 +1,78 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" href="{% static 'css/login_fail.css' %}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/titleCodea.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/nextButton.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    />
+  </head>
 
-<body>
-    <div class="container">
-        <form class="login_wrap" method="post" action="{% url 'accounts:login' %}">
-            {% csrf_token %}
-            <button id="li_login_btn" class="li_login_btn" type="submit">
-                <div class="login_box">
-                    <span>로그인</span>
-                </div>
-            </button>
-
-            <div class="li_login_wrap">
-                <div class="idpw">
-                    <div class="li_email">
-                        <input class="li_email_input" id="li_email_input" type="text" name="username"placeholder="아이디" />
-                    </div>
-                    <div class="li_pw">
-                        <input class="li_pw_input" id="li_pw_input" type="password" name="password" placeholder="비밀번호" />
-                    </div>
-                </div>
-                <div>
-                    <a id="error_text" class="error_text">아이디 또는 비밀번호를 잘못 입력했습니다.</a>
-                </div>
-                <div class="join_wrap">
-                    <span>아직 회원이 아니신가요?</span>
-                    <a id="li_join" class="li_join" href="{% url 'accounts:signup' %}">
-                        <span>회원가입</span>
-                    </a>
-                </div>
+  <body>
+    <div class="login_background">
+      <div class="login_container">
+        <img class="titleCodea" src="{% static 'img/codea_logo.png' %}" />
+        <form
+          class="login_wrap"
+          method="post"
+          action="{% url 'accounts:login' %}"
+        >
+          {% csrf_token %}
+          <div class="li_email">
+            <input
+              class="li_email_input"
+              id="li_email_input"
+              type="text"
+              name="username"
+              placeholder="아이디"
+            />
+          </div>
+          <div class="li_pw">
+            <input
+              class="li_pw_input"
+              id="li_pw_input"
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+            />
+          </div>
+          <div>
+            <a id="error_text" class="error_text"
+              >아이디 또는 비밀번호를 잘못 입력했습니다.</a
+            >
+          </div>
+          <div class="join_wrap">
+            <span>아직 회원이 아니신가요?</span>
+            <a id="li_join" class="li_join" href="{% url 'accounts:signup' %}">
+              <span>회원가입</span>
+            </a>
+          </div>
+          <button id="li_login_btn" class="li_login_btn" type="submit">
+            <div class="login_box">
+              <span>로그인</span>
             </div>
-            <span class="li_codea">codea</span>
+          </button>
         </form>
+      </div>
     </div>
     <script src="{% static 'js/login_fail.js' %}"></script>
-</body>
-
+  </body>
 </html>
