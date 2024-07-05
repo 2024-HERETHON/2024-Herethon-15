@@ -90,12 +90,16 @@
                 class="input_idnum_f"
                 type="number"
                 placeholder="생년월일(6자리)"
+                maxlength="6"
+                oninput="checkMaxLength(this)"
               />
               <p style="font-size: 20px">-</p>
               <input
                 class="input_idnum_b"
                 type="number"
                 placeholder="뒷자리(7자리)"
+                maxlength="7"
+                oninput="checkMaxLength(this)"
               />
             </div>
           </div>
@@ -120,6 +124,13 @@
         <button id="return_btn">환급 신청하기</button>
       </section>
       <script src="fe_point.js"></script>
+      <script>
+        function checkMaxLength(object) {
+          if (object.value.length > object.maxLength) {
+            object.value = object.value.slice(0, object.maxLength);
+          }
+        }
+      </script>
     </div>
   </body>
 </html>

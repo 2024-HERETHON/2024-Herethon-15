@@ -21,6 +21,8 @@ document.getElementById("return_btn").addEventListener("click", function () {
     alert("입금받을 계좌번호를 입력해주시기 바랍니다.");
   } else if (idnum_f.value == 0 || idnum_b.value == 0) {
     alert("주민등록번호를 입력해주시기 바랍니다.");
+  } else if (idnum_f.length != 6 || idnum_b.length != 7) {
+    alert("주민등록번호를 올바르게 입력해주시기 바랍니다.");
   } else if (!checkbox.checked) {
     alert("약관을 모두 동의해주시기 바랍니다.");
   } else {
