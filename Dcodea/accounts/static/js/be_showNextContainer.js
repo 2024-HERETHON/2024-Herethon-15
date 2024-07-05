@@ -9,6 +9,11 @@ function checkFullInput() {
     alert("이름을 입력해주시기 바랍니다.");
   } else if (!id.value) {
     alert("아이디를 입력해주시기 바랍니다.");
+  } else if (!id.value.includes("@")) {
+    alert(
+      "아이디는 이메일 형식에 맞게 입력해주시기 바랍니다.\n(@를 포함하여 작성해주세요.)"
+    );
+    id.value = "";
   } else if (!pw.value || pw.value != pwCheck.value) {
     alert("비밀번호가 일치하지 않습니다.");
     pw.value = "";
