@@ -20,7 +20,7 @@
       <div class="nav_container"></div>
       <div class="logo">codea</div>
       <button class="menu" id="home">홈</button>
-      <button class="menu" id="search">탐색</button>
+      <button class="menu" id="search" onclick="location.href='{% url 'search:search' %}'">탐색</button>
       <button class="menu" id="point">포인트</button>
       <button class="menu" id="logout" onclick="location.href='{% url 'accounts:logout' %}'">
         로그아웃
@@ -46,10 +46,15 @@
         <div class="profile_info">
           <div class="profile_name">{{user.username}}</div>
           <br />
-          <div class="profile_tag">{{user.userPosition}}</div>
+          <div class="profile_tag {% if user.userPosition == 'frontend' %}front{% elif user.userPosition == 'backend' %}back{% elif user.userPosition == 'undefined' %}unknown{% elif user.userPosition == 'fullstack' %}fullstack{% endif %}">
+          {{user.userPosition}}</div>
         </div>
       </div>
-      <textarea class="intro_box" placeholder="introduction..."></textarea>
+      <form method="post" name="introduction_form">
+        {% csrf_token %}
+        <textarea class="intro_box" name="introduction" placeholder="introduction...">{{ user_profile.introduction }}</textarea>
+        <button id="intro_btn" type="submit" name="introduction_form" ></button>
+      </form>
 
       <div class="show_cheer">
         <div class="cheer_icon">받은응원</div>
@@ -96,7 +101,7 @@
             <div class="worry_text_detail">
               익명으로 고민을 공유하고 동료 개발자들에게 피드백을 받아보세요!
             </div>
-            <textarea class="modal_worry_box" placeholder="고민을 입력해보세요!">{{ question }}</textarea>
+            <div class="modal_worry_box" placeholder="고민을 입력해보세요!">{{ question }}</div>
             <div class="comment_container" id="comments_section"></div>
             <div class="comments_section" id="comments_section"></div>
           </div>

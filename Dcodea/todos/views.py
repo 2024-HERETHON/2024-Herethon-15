@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .forms import TodoForm, QuestionForm, CommentForm, ProfileImageForm
+from .forms import TodoForm, QuestionForm, CommentForm, ProfileImageForm, IntroductionForm
 from .models import Profile, Todo, Question, Comment
 
 @login_required
@@ -11,6 +11,7 @@ def main(request):
     comment_form = CommentForm()
     user_profile, created = Profile.objects.get_or_create(user=request.user)
     profile_form = ProfileImageForm(instance=user_profile)
+    introduction_form = IntroductionForm(instance=user_profile)
 
     if request.method == 'POST':
         if 'todo_form' in request.POST:
@@ -42,6 +43,11 @@ def main(request):
             if profile_form.is_valid():
                 profile_form.save()
                 return redirect('todo')
+        elif 'introduction_form' in request.POST:
+            introduction_form = IntroductionForm(request.POST, instance=user_profile)
+            if introduction_form.is_valid():
+                introduction_form.save()
+                return redirect('todo')
 
     todos = Todo.objects.filter(user=request.user).order_by('date')
     questions = Question.objects.all()
@@ -56,6 +62,7 @@ def main(request):
         'comment_form': comment_form,
         'comments': comments,
         'profile_form': profile_form,
+        'introduction_form': introduction_form,
         'user_profile': user_profile,
         'userName': request.user.username,
         'userPosition': request.user.userPosition,

@@ -4,11 +4,12 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to='profile_images/', default='profile_images/default.png')
-    
+    profile_image = models.ImageField(upload_to='profile_images/', default='/default.svg')
+    introduction = models.TextField(blank=True, null=True)  # introduction 필드 추가
 
     def __str__(self):
         return self.user.username

@@ -9,8 +9,8 @@ class CustomUser(AbstractUser):
     #userPw = models.CharField(max_length=20, null=False, blank=False)
     #userPwCheck = models.CharField(max_length=20, null=False, blank=False)
     POSITION_CHOICES = [
-        ('frontend', '프론트엔드'),
-        ('backend', '백엔드'),
+        ('frontend', '프론트'),
+        ('backend', '백'),
         ('fullstack', '풀스택'),
         ('undefined', '미정'),
     ]

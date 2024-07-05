@@ -6,6 +6,11 @@ class ProfileImageForm(forms.ModelForm):
         model = Profile
         fields = ['profile_image']
 
+class IntroductionForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['introduction']
+
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
