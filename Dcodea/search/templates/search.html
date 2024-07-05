@@ -129,6 +129,28 @@
     <title>Search</title>
     {% load static %}
     <!-- 여기부터 css와 js 파일 넣으시면 됩니다. -->
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .todo-item p {
+            margin: 0 10px;
+        }
+        .todo-item .description {
+            flex: 1;
+        }
+        .todo-item .completed {
+            color: green;
+        }
+        .user-item h3 {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -145,14 +167,14 @@
         {% if user_todos %}
         <ul>
             {% for user, todos in user_todos.items %}
-            <li>
+            <li class="user-item">
                 <h3>{{ user.username }}</h3>
-                <p>Position: {{ user.userPosition }}</p>
+                <p class="position">Position: {{ user.userPosition }}</p>
                 <ul>
                     {% for todo in todos %}
-                    <li>
-                        <p>Description: {{ todo.description }}</p>
-                        <p>Completed: {{ todo.completed }}</p>
+                    <li class="todo-item">
+                        <p class="description">Description: {{ todo.description }}</p>
+                        <p class="completed">Completed: {{ todo.completed }}</p>
                     </li>
                     {% endfor %}
                 </ul>
@@ -167,9 +189,9 @@
         <h2>고민 리스트</h2>
         <ul>
             {% for question in questions %}
-            <li>
+            <li class="question-item">
                 <a href="{% url 'search:detail' question.user.userId %}">{{ question.content }}</a>
-                <p>작성자: {{ question.user.username }}</p>
+                <p class="question-author">작성자: {{ question.user.username }}</p>
             </li>
             {% endfor %}
         </ul>

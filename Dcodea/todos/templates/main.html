@@ -31,29 +31,28 @@
 
     <section>
       <div class="profile_container">
-        <form method="post" enctype="multipart/form-data" name="profile_form">
+        <form method="post" enctype="multipart/form-data" class="profile_form">
           {% csrf_token %}
-          <input type="file" class="real-upload" name="profile_image" accept="image/*" style="display: none" />
-          <img
-            src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'img/profile.svg' %}{% endif %}"
-            class="profile_img" />
-          <img src="{% static 'img/profile_edit.svg' %}" class="profile_edit"
-            onclick="document.querySelector('.real-upload').click();" />
-          <input type="hidden" class="profile_form" value="profile_form" />
-          <input type="submit" value="저장" style="display: none" />
-        </form>
+          <img src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'img/profile.svg' %}{% endif %}" class="profile_img">
+          <input type="file" class="real-upload" name="profile_image" accept="image/*" style="display: none">
+          <img src="{% static 'img/profile_edit.svg' %}" class="profile_edit" onclick="document.querySelector('.real-upload').click();"> 
+          <input type="hidden" name="profile_form" value="profile_form">
+          <input type="submit" value="저장" style="display: none;">
+      </form>
 
         <div class="profile_info">
           <div class="profile_name">{{user.username}}</div>
           <br />
-          <div class="profile_tag {% if user.userPosition == 'frontend' %}front{% elif user.userPosition == 'backend' %}back{% elif user.userPosition == 'undefined' %}unknown{% elif user.userPosition == 'fullstack' %}fullstack{% endif %}">
-          {{user.userPosition}}</div>
+          <div
+            class="profile_tag {% if user.userPosition == 'frontend' %}front{% elif user.userPosition == 'backend' %}back{% elif user.userPosition == 'undefined' %}unknown{% elif user.userPosition == 'fullstack' %}fullstack{% endif %}">
+            {{user.userPosition}}</div>
         </div>
       </div>
       <form method="post" name="introduction_form">
         {% csrf_token %}
-        <textarea class="intro_box" name="introduction" placeholder="introduction...">{{ user_profile.introduction }}</textarea>
-        <button id="intro_btn" type="submit" name="introduction_form" ></button>
+        <textarea class="intro_box" name="introduction"
+          placeholder="introduction...">{{ user_profile.introduction }}</textarea>
+        <button id="intro_btn" type="submit" name="introduction_form"></button>
       </form>
 
       <div class="show_cheer">
@@ -125,11 +124,11 @@
       </form>
       <ul id="todo_list" style="list-style-type: none">
         {% for todo in todos %}
-        <li>
+        <li id="todo-{{ todo.id }}">
           <input type="checkbox" class="checkbox" {% if todo.completed %}checked{% endif %} />
           <span class="todo_text">{{ todo.description }}</span>
-          <button class="edit_btn"></button>
-          <button class="del_btn"></button>
+          <button class="edit_btn">편집</button>
+          <button class="del_btn">삭제</button>
         </li>
         {% endfor %}
       </ul>
