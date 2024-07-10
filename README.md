@@ -63,8 +63,8 @@
            <td  align="center"><p>동덕여자대학교</p><p>메인/유저/포인트 페이지 구현</p></td>
             <td  align="center"><p>성신여자대학교</p><p>로그인/탐색 페이지 구현</p></td>
             <td  align="center"><p>숙명여자대학교</p><p>회원가입/포인트 페이지 구현</p></td>
-            <td  align="center"><p>덕성여자대학교</p><p>로그인/메인/탐색/포인트 페이지 구현</p></td>
-            <td  align="center"><p>이화여자대학교</p><p>회원가입/메인/탐색/포인트 페이지 구현</p></td>
+            <td  align="center"><p>덕성여자대학교</p><p>회원가입/메인/탐색/포인트 페이지 구현</p></td>
+            <td  align="center"><p>이화여자대학교</p><p>로그인/메인/탐색/URL 연결</p></td>
      </tr>
   </table>
 
